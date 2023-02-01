@@ -44,6 +44,8 @@ module.exports = {
 
       await Post.create({
         title: req.body.title,
+        location: req.body.location,
+        trailName: req.body.trailName,
         image: result.secure_url,
         cloudinaryId: result.public_id,
         // We may need the ID to delete it. 
