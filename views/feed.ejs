@@ -18,11 +18,10 @@
           <h5>Trail Name:</h5>
           <li><%= posts[i].trailName %></li>
           <li><%= posts[i].likes %></li>
-          <img class="img-fluid" src="<%= posts.image%>" />
         <div class="row justify-content-between">
         <form
           class="col-1"
-          action="/feed/likePost/<%= posts.id %>?_method=PUT"
+          action="/feed/likePost/<%= posts[i]._id %>?_method=PUT"
           method="POST"
         >
           <button class="btn btn-primary fa fa-heart" type="submit"></button>
