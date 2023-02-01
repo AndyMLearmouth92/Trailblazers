@@ -27,4 +27,7 @@ router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
 // Post request using the signup route to the auth controller using the postSignup method.
 
+router.put("/feed/likePost/:id", postsController.likePost);
+// Put request uses post ID and sends to the posts controller and the like post method.
+
 module.exports = router;
