@@ -3245,6 +3245,22 @@ html {
   position: absolute;
 }
 
+.col-start-2 {
+  grid-column-start: 2;
+}
+
+.col-start-3 {
+  grid-column-start: 3;
+}
+
+.col-start-7 {
+  grid-column-start: 7;
+}
+
+.col-start-8 {
+  grid-column-start: 8;
+}
+
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -3305,6 +3321,10 @@ html {
   flex: none;
 }
 
+.grid-cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -3323,6 +3343,10 @@ html {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .bg-slate-300 {
@@ -3397,6 +3421,5 @@ html {
 
 .absolute{
   margin-top: -150px;
-  margin-left: 150px;
 }
 

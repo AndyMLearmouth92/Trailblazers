@@ -13,6 +13,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.get("/", homeController.getIndex);
 // Get request via the home controller and get index method.
 router.get("/profile", ensureAuth, postsController.getProfile);
+
+router.get("/profileGrid", ensureAuth, postsController.getProfileGrid);
 //Get request, ensuring we are logged in, use post controller and the getProfile method.
 router.get("/feed", ensureAuth, postsController.getFeed);
 // Get request on the feed route via the post controller using the get feed method.
