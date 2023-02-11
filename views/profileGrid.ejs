@@ -37,32 +37,78 @@
     <section class="border border-2 col-start-4 col-span-6 grid grid-cols-2" >
       <% for(var i=0; i<posts.length; i++) {%>
       <div class="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
-        <figure><img src="<%= posts[i].image%>" alt="Shoes" /></figure>
+        <figure class="h-60"><a href="/post/<%= posts[i]._id%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
         <div class="card-body">
           <h2 class="card-title"><%= posts[i].title%></h2>
           <h5>Location: <%= posts[i].location%></h5>
           <h5>Trail Name: <%= posts[i].trailName%></h5>
           <p><%= posts[i].caption%></p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">Like</button>
+            <form
+            class="col-1"
+            action="/profile/likePost/<%= posts[i].id %>?_method=PUT"
+            method="POST"
+          >
+            <button class="btn btn-primary fa fa-heart" type="submit"></button>
+            <h3>Likes: <%= posts[i].likes %></h3>
+          </form>
+        </div>
+          <%if(posts.user == user.id){ %>
+            <form
+              action="/profile/deletePost/<%= posts[i].id %>?_method=DELETE"
+              method="POST"
+              class="col-3"
+            >
+              <button class="btn btn-primary fa fa-trash" type="submit"></button>
+            </form>
+            <%}%>
           </div>
         </div>
       </div>
       <% } %>
-      <div class="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
-        <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
+      
     </section>
       
     </section>
+
+    <div class="mt-5">
+      <h2>Add a post</h2>
+
     
+
+      <!-- Add a post heading -->
+      <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+        <div class="mb-3 form-control w-full max-w-xs">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs form-control" id="title" name="title" />
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs form-control" id="location" name="location" />
+      </div>
+
+      <div class="mb-3">
+        <label for="trailName" class="form-label">Trail Name</label>
+        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs form-control" id="trailName" name="trailName" />
+      </div>
+
+        <div class="mb-3">
+          <label for="caption" class="form-label">Caption</label>
+          <textarea class="textarea textarea-bordered form-control w-full max-w-xs" id="caption" name="caption" placeholder="Type here"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="imgUpload" class="form-label">Image</label>
+          <input type="file" class="form-control" id="imageUpload" name="file">
+        </div>
+
+        <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+      </form>
+      <!-- Form to upload title, location, trail name, caption and image alongside a button to submit the post. -->
+    </div>
+</div>
+
 </main>
 
 <%- include('partials/footer') -%>
