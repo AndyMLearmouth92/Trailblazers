@@ -13,7 +13,28 @@
         /* background: var(--light-gray); */
     }
 
+    .signup-container {
+        width: 100%;
+        height: 26rem;
+        object-position: top;
+        background: url('/Images/funes-4984899.jpg') 6% 15% no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        padding-top: 2rem;
+            /* background: var(--light-gray); */
+        }
+
 .absolute{
     margin-top: -150px;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer{
+    margin-top: auto;
 }
 

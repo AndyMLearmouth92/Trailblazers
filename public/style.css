@@ -2811,20 +2811,6 @@ html {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.label-text {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: hsl(var(--bc) / var(--tw-text-opacity));
-}
-
-.label-text-alt {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  --tw-text-opacity: 1;
-  color: hsl(var(--bc) / var(--tw-text-opacity));
-}
-
 .label a:hover {
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / var(--tw-text-opacity));
@@ -3296,6 +3282,21 @@ html {
   padding: 0px;
 }
 
+.file-input-lg {
+  height: 4rem;
+  padding-right: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  line-height: 2;
+}
+
+.file-input-lg::file-selector-button {
+  margin-right: 1.5rem;
+  height: 3.875rem;
+  min-height: 3.875rem;
+  font-size: 1.125rem;
+}
+
 .avatar.online:before {
   content: "";
   position: absolute;
@@ -3400,10 +3401,6 @@ html {
   position: absolute;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
-}
-
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
@@ -3428,16 +3425,8 @@ html {
   grid-column-start: 8;
 }
 
-.col-start-1 {
-  grid-column-start: 1;
-}
-
 .col-start-4 {
   grid-column-start: 4;
-}
-
-.row-span-3 {
-  grid-row: span 3 / span 3;
 }
 
 .my-4 {
@@ -3466,14 +3455,6 @@ html {
   margin-top: 0.75rem;
 }
 
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
 .inline-block {
   display: inline-block;
 }
@@ -3490,28 +3471,12 @@ html {
   height: 2rem;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
 .h-52 {
   height: 13rem;
 }
 
 .h-60 {
   height: 15rem;
-}
-
-.max-h-36 {
-  max-height: 9rem;
-}
-
-.max-h-60 {
-  max-height: 15rem;
-}
-
-.max-h-80 {
-  max-height: 20rem;
 }
 
 .w-full {
@@ -3526,24 +3491,16 @@ html {
   width: 2rem;
 }
 
+.w-96 {
+  width: 24rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }
 
 .w-52 {
   width: 13rem;
-}
-
-.w-24 {
-  width: 6rem;
-}
-
-.w-96 {
-  width: 24rem;
-}
-
-.max-w-md {
-  max-width: 28rem;
 }
 
 .max-w-xs {
@@ -3566,8 +3523,8 @@ html {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .justify-end {
@@ -3607,6 +3564,11 @@ html {
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
 .bg-base-100 {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
@@ -3615,11 +3577,6 @@ html {
 .bg-slate-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .stroke-current {
@@ -3683,7 +3640,30 @@ html {
   /* background: var(--light-gray); */
 }
 
+.signup-container {
+  width: 100%;
+  height: 26rem;
+  -o-object-position: top;
+     object-position: top;
+  background: url('/Images/funes-4984899.jpg') 6% 15% no-repeat;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-top: 2rem;
+  /* background: var(--light-gray); */
+}
+
 .absolute{
   margin-top: -150px;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer{
+  margin-top: auto;
 }
 
