@@ -1,7 +1,7 @@
 <%- include('partials/header') -%>
-
-<main class="container">
-  <div class="row justify-content-center">
+<div class="signup-container"></div>
+<main class="">
+  <div class="">
     <section class="col-6 mt-5">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
@@ -10,30 +10,31 @@
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
-      <form action="/login" method="POST">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            name="email"
-          />
+
+    <form class="grid grid-cols-5" action="/login" method="POST">
+      <div class="col-start-2">
+        <div class="mb-3 form-control w-full max-w-xs file-input-lg">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="input input-bordered w-full max-w-xs file-input-lg form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
         </div>
-        <div class="mb-3">
+      </div>
+
+      <div class="col-start-4">
+        <div class="mb-3 form-control w-full max-w-xs file-input-lg">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input
             type="password"
-            class="form-control"
+            class="input input-bordered w-full max-w-xs form-control file-input-lg"
             id="exampleInputPassword1"
             name="password"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+        <button type="submit" class="btn btn-primary col-start-4">Submit</button>
+      </div>
+      
+
+     
+    </form>
     </section>
   </div>
 </main>
