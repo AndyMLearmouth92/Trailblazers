@@ -1,16 +1,21 @@
 <%- include('partials/header') -%>
 
-<main class="container">
-    <div class="row justify-content-around mt-5">
-        <a href="/login" class="col-3 btn btn-primary"> Login</a>
-        <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
-    </div>
+<main class ="bg-slate-200">
+    <section class="menu-container">
+        <div class="flex justify-center grid grid-cols-3">
+            <h1 class="text-7xl text-white col-start-2 ">Trailblazers</h1>
+            <h3 class="text-4xl text-white col-start-2 mt-5">Review, Rate and Ramble</h3>
+        </div>
+    </section>
+
+
+<div class="grid grid-cols-9 bg-slate-200 btn-group">
+    <a href="/login" class="btn btn-active col-start-3"> Login</a>
+    <a href="/signup" class="btn btn-active col-start-7"> Signup</a>
+</div>
 </main>
 <!-- Shows two buttons, one for login and one for signup. -->
    
-   <div class="row justify-content-around mt-5">
-    <img src="/Images/indexPage.jpg" alt=""> 
-    <section>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, ad vel magnam hic corrupti porro dolor excepturi laboriosam quisquam delectus, natus ipsum, odio consequatur maiores dolores animi inventore reiciendis nam.</section>
-    </div>
+   
 
 <%- include('partials/footer') -%>

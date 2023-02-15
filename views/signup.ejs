@@ -6,7 +6,7 @@
             <section class="col-6 mt-5">
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-danger"><%= el.msg %></div>
+                        <div class="alert alert-danger bg-slate-200"><%= el.msg %></div>
                     <% }) %>    
                 <% } %>
                 <% if (locals.messages.info) { %>
@@ -39,7 +39,7 @@
                       <label for="confirmPassword" class="form-label">Confirm Password</label>
                       <input type="password" class="form-control" class="input input-bordered w-full max-w-xs" id="confirmPassword" name="confirmPassword" />
                     </div>
-                    <button type="submit" class="btn btn-primary col-start-4">Submit</button>
+                    <button type="submit" class="btn btn-primary col-start-4 mt-4">Submit</button>
                   </div>
                    
                   </form>
