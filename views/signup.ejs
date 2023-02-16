@@ -1,4 +1,48 @@
 <%- include('partials/header') -%>
+
+<div class="hero min-h-screen" style="background-image: url(/Images/funes-4984899.jpg);">
+  <div class="hero-overlay bg-opacity-20"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-300">
+        <div class="card-body">
+          <div class="form-control">
+            <h2 class="text-black text-2xl">Create an account today</h2>
+            <label class="label">
+              <span class="label-text">Email</span>
+            </label>
+            <input type="text" placeholder="email" class="input input-bordered" />
+          </div>
+          <div class="form-control">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input type="text" placeholder="username" class="input input-bordered" />
+        </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input type="text" placeholder="password" class="input input-bordered" />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Confirm assword</span>
+            </label>
+            <input type="text" placeholder="confirm password" class="input input-bordered" />
+          </div>
+          <div class="form-control mt-3">
+            <button class="btn btn-grey">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>
+
+
+<!-- 
 <div class="signup-container"></div>
 <main class="">
     <section class="">
@@ -14,7 +58,7 @@
                         <div class="alert alert-info"><%= el.msg %></div>
                     <% }) %>    
                 <% } %>
-                <!-- For each to iterate through an array of error messages and insert them into the divs and therefore the DOM. -->
+                
                 <form class="grid grid-cols-5" action="/signup" method="POST">
                 <div class="col-start-2">
                     <div class="mb-3 form-control w-full max-w-xs file-input-lg">
@@ -46,7 +90,6 @@
             </section>
         </div>
       </section>
-    </main>
+    </main> -->
     <!-- Form to sign up to the social media site. It has an input for user name, email address, password, confirm email address and confirm password. There is a div which states we will not share your email with anyone and a button for submitting the form. -->
 
-<%- include('partials/footer') -%>

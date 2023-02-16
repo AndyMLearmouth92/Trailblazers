@@ -48,3 +48,13 @@ body{
     margin-top: auto;
 }
 
+button.btn-grey{
+background-color: rgb(15 23 42);
+color: white;
+font-weight: 600;
+}
+
+button.btn-grey:hover{
+color: white;
+background-color: rgb(100 116 139);
+}
