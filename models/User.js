@@ -1,12 +1,15 @@
 const bcrypt = require("bcrypt");
-// Encrypts the password
+// Encrypts the password  
 const mongoose = require("mongoose");
+const { stringify } = require("postcss");
 // Uses Mongoose
 
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
+  profilePhoto: {type: String, default: 'https://res.cloudinary.com/dhgjf8v01/image/upload/v1676644661/mountain-425134_sbqobs.jpg'},
+  cloudinaryId: {type: String, default: 'mountain-425134_sbqobs'}
 });
 // Sets us the schema for username, email and password.
 

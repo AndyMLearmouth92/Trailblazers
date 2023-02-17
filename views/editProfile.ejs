@@ -1,0 +1,136 @@
+<%- include('partials/header') -%>
+<!-- header image -->
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content grid col-span-1">
+    <div class="col-start-1">
+      <h1 class="text-5xl font-bold">Edit your profile!</h1>
+    </div>
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div class="card-body grid col-span-2">
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">User Name</span>
+          </label>
+          <input type="text" placeholder="User Name" class="input input-bordered" />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Location</span>
+          </label>
+          <input type="text" placeholder="Location" class="input input-bordered" />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Location</span>
+          </label>
+          <textarea type="text" placeholder="About you" class="input input-bordered h-32"></textarea>
+        </div>
+
+        <div class="form-control mt-6">
+          <button class="btn btn-primary">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="profile--header-container"></div>
+<!-- profile info banner -->
+<div class="w-full h-28 bg-slate-300 static">
+  <div class="avatar">
+    <div class="w-40 rounded absolute">
+      <img class="border-2" src="/Images/dog-983014_1920.jpg" />
+      <button class="container btn btn-outline mt-4">Button</button>
+    </div>
+    
+  </div>
+  <!-- Next steps to change to grid layout for this container -->
+  <div class="stats shadow">
+  
+    <div class="stat">
+      <div class="stat-figure text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+      </div>
+      <div class="stat-title">Total Likes</div>
+      <div class="stat-value text-primary">25.6K</div>
+    </div>
+    
+    <div class="stat">
+      <div class="stat-figure text-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+      </div>
+      <div class="stat-title">Page Views</div>
+      <div class="stat-value text-secondary">2.6M</div>
+    </div>
+  
+  </div>
+</div>
+
+<!-- Data bar -->
+
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-6">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <!-- Shows user's username from the user collection. Pulls it with every request and displays in the DOM. -->
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <!-- Shows user's email address from the user collection. Pulls it with every request and displays in the DOM. -->
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <!-- Button to log out -->
+          </div>
+          <div class="mt-5">
+            <h2>Add a post</h2>
+            <!-- Add a post heading -->
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+            <div class="mb-3">
+              <label for="trailName" class="form-label">Trail Name</label>
+              <input type="text" class="form-control" id="trailName" name="trailName">
+            </div>
+              <div class="mb-3">
+                <label for="caption" class="form-label">Caption</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+            <!-- Form to upload title, location, trail name, caption and image alongside a button to submit the post. -->
+          </div>
+      </div>
+      <div class="col-6">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <!-- Loops through all the users posts and put them in LIs and anchor tags the image. -->
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/post/<%= posts[i]._id%>">
+              <!-- Building LIs using ID -->
+              <img class="img-fluid" src="<%= posts[i].image%>">
+              <!-- Plugging in to build the profile -->
+            </a>
+          </li>
+        <% } %>
+        </ul>
+        <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+          <!-- Button to return to the feed. -->
+        </div>  
+      </div>  
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>

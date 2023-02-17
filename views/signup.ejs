@@ -6,34 +6,41 @@
     <div class="max-w-md">
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-300">
         <div class="card-body">
+          <form action="/signup" method="POST">
+
           <div class="form-control">
             <h2 class="text-black text-2xl">Create an account today</h2>
-            <label class="label">
-              <span class="label-text">Email</span>
-            </label>
-            <input type="text" placeholder="email" class="input input-bordered" />
-          </div>
-          <div class="form-control">
           <label class="label">
             <span class="label-text">Username</span>
           </label>
-          <input type="text" placeholder="username" class="input input-bordered" />
-        </div>
+          <input type="text" placeholder="username" class="input input-bordered text-black" id="userName" name="userName"/>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Email</span>
+            </label>
+            <input type="email" placeholder="email" class="input input-bordered text-black" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"/>
+          </div>
+
           <div class="form-control">
             <label class="label">
               <span class="label-text">Password</span>
             </label>
-            <input type="text" placeholder="password" class="input input-bordered" />
+            <input type="password" placeholder="password" class="input input-bordered text-black" id="password" name="password"/>
           </div>
+
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Confirm assword</span>
+              <span class="label-text">Confirm Password</span>
             </label>
-            <input type="text" placeholder="confirm password" class="input input-bordered" />
+            <input type="password" placeholder="confirm password" class="input input-bordered" id="confirmPassword" name="confirmPassword"/>
           </div>
+
           <div class="form-control mt-3">
             <button class="btn btn-grey">Login</button>
           </div>
+        </form>
         </div>
       </div>
     </div>
