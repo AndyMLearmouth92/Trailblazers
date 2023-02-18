@@ -9,7 +9,7 @@ const editProfileController = require("../controllers/editProfile")
 router.get("/", ensureAuth, editProfileController.geteditProfile);
 // Grabs whatever is in the ID and sends it to the post controller for the getPost method. 
 
-router.post("/createPost", upload.single("file"), profileController.createPost);
+router.post("/editProfile", upload.single("file"), editProfileController.editProfile);
 // Post request which uploads a single file and directs to the post controller and the create post method. It uploads to Multer as seen above.
 
 router.put("/likePost/:id", profileController.likePost);

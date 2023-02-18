@@ -9,7 +9,9 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
   profilePhoto: {type: String, default: 'https://res.cloudinary.com/dhgjf8v01/image/upload/v1676644661/mountain-425134_sbqobs.jpg'},
-  cloudinaryId: {type: String, default: 'mountain-425134_sbqobs'}
+  cloudinaryId: {type: String, default: 'mountain-425134_sbqobs'},
+  location: {type: String, default: 'The world'},
+  bio: {type: String, default: 'Enjoy hiking',},
 });
 // Sets us the schema for username, email and password.
 
