@@ -48,6 +48,17 @@ module.exports = {
       console.log(err);
     }
   },
+  getPostPage: async (req, res) => {
+    try {
+      const post = await Post.findById(req.params.id);
+      const comment = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
+      // Finding the post by the post ID which comes from the get request route.
+      res.render("createPost.ejs", { posts: post, user: req.user, comment: comment, });
+      // Sends the information to the post.ejs view which will render it. Req.user is the current session and relates to cookies stored in the database.
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary

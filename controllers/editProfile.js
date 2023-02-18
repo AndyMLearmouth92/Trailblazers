@@ -32,6 +32,14 @@ module.exports = {
       // Upload image to cloudinary
       if(req.file != undefined){
       const result = await cloudinary.uploader.upload(req.file.path);
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          profilePhoto: result.secure_url,
+          cloudinaryId: result.public_id
+        }
+      )
+      console.log('Successfully changed username')
       }
       if(req.body.userName != ''){
         await User.findOneAndUpdate(

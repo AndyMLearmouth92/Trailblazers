@@ -7,10 +7,10 @@
     <div class="w-full h-28 bg-slate-300">
       <div class="avatar">
         <div class="w-40 rounded absolute">
-          <img class="border-2" src="/Images/dog-983014_1920.jpg" />
+          <img class="border-2" src="<%= user.profilePhoto%>" />
         </div>
       </div>
-      <button class="container btn btn-outline mt-4">Edit Profile</button>
+      <a href="/editProfile"><button class="container btn btn-outline mt-4">Edit Profile</button></a>
     </div>
   </div>
 
@@ -31,7 +31,10 @@
   <section class="grid grid-cols-9">
     <section class="border border-2 col-start-2 col-span-2 my-4" >
       <div class="border border-4 h-52 bg-slate-300">
-        <p class="font-extrabold">About:</p>
+        <h3 class="font-extrabold">About:</h3>
+        <p> <%= user.bio%></p>
+        <br>
+        <p><%= user.location%></p>
       </div>
     </section>
     

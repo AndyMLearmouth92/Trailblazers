@@ -6,6 +6,10 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  location: {
+    type: String,
+    required: true,
+  },
   trailName: {
     type: String,
     required: true,
