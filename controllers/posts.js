@@ -78,7 +78,7 @@ module.exports = {
       });
       // Passes the request through to the post model, following the schema and console logs that post has been added. Refreshes
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect("/profileGrid");
     } catch (err) {
       console.log(err);
     }
