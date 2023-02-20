@@ -35,7 +35,7 @@
             }
 
 .absolute{
-    margin-top: -150px;
+    margin-top: -200px;
 }
 
 body{
@@ -57,4 +57,24 @@ font-weight: 600;
 button.btn-grey:hover{
 color: white;
 background-color: rgb(100 116 139);
+}
+
+.fa-heart:hover{
+color: rgb(240, 131, 216);
+background: rgb(15 23 42);
+}
+
+.fa-trash:hover{
+    color: gray;
+    background: rgb(15 23 42);
+}
+
+.fa-comment:hover{
+    color: rgb(0, 153, 255);
+    background: rgb(15 23 42);
+}
+
+.rating-mdlg input {
+    height: 2rem;
+    width: 2rem;
 }
