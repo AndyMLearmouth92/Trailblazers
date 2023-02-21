@@ -5,11 +5,11 @@ const User = require("../models/User");
 
 module.exports = {
  
-  getProfileGrid: async (req, res) => {
+  getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
       // Go to post collection and find documents that have a userID property that matches the user ID. This profile only works for the logged in user. 
-      res.render("profileGrid.ejs", { posts: posts, user: req.user });
+      res.render("profile.ejs", { posts: posts, user: req.user });
      // Tells the view to render the posts that match the userID in the view - profile EJS.
     } catch (err) {
       console.log(err);
@@ -62,7 +62,7 @@ module.exports = {
       );
       // Speaks to the model and finds document where the ID matches the one in the request and increases likes by 1. Console logs this and redirects to the specific post using the ID.
       console.log("Likes +1");
-      res.redirect(`/profileGrid`);
+      res.redirect(`/profile`);
     } catch (err) {
       console.log(err);
     }

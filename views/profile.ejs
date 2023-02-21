@@ -41,13 +41,14 @@
     </section>
     
 
-    <section class="border border-x border-y border-slate-300 col-start-4 col-span-6 grid grid-cols-2 gap-4 border-black mx-4 mt-4" >
+    <section class="border  border-slate-900 col-start-4 col-span-6 grid grid-cols-2 gap-4 border-black m-4 p-4" >
+      
       <div class="col-start-1 col-span-2 grid grid-cols-9 py-2">
         <h2 class="col-start-1 text-2xl">Posts:</h2>
         <a class="col-start-8 col-span-2 flex justify-center" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-3/5">Add Post</button></a>
       </div>
       <% for(var i=0; i<posts.length; i++) {%>
-      <div class="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
+      <div class="card card-compact w-fit bg-slate-100 shadow-xl m-2">
         <figure class="h-60"><a href="/post/<%= posts[i]._id%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
         <div class="card-body">
           <h2 class="card-title"><%= posts[i].title%></h2>

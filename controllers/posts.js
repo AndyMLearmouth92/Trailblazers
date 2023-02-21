@@ -14,11 +14,11 @@ module.exports = {
       console.log(err);
     }
   },
-  getProfileGrid: async (req, res) => {
+  getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
       // Go to post collection and find documents that have a userID property that matches the user ID. This profile only works for the logged in user. 
-      res.render("profileGrid.ejs", { posts: posts, user: req.user });
+      res.render("profile.ejs", { posts: posts, user: req.user });
      // Tells the view to render the posts that match the userID in the view - profile EJS.
     } catch (err) {
       console.log(err);
@@ -78,7 +78,7 @@ module.exports = {
       });
       // Passes the request through to the post model, following the schema and console logs that post has been added. Refreshes
       console.log("Post has been added!");
-      res.redirect("/profileGrid");
+      res.redirect("/profile");
     } catch (err) {
       console.log(err);
     }
