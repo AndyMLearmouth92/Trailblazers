@@ -31,12 +31,11 @@
   
   <section class="grid grid-cols-9">
     <section class="border border-2 col-start-2 col-span-2 my-4" >
-      <div class="border border-4 h-52 bg-slate-300">
+      <div class="border border-4  bg-slate-300 p-3 h-56">
         <h3 class="font-extrabold">About:</h3>
-        <p> <%= user.bio%></p>
+        <p><i class="fa-solid fa-circle-info"></i> <%= user.bio%></p>
         <br>
-        <p><%= user.location%></p>
-        <p><i class="fa-solid fa-house"></i></p>
+        <p><i class="fa-solid fa-house"></i> <%= user.location%></p>
       </div>
     </section>
     
@@ -79,7 +78,7 @@
           <button class="btn fa fa-comment bg-slate-900" type="submit"></button>
         </div>
         <div class="flex justify-end col-start-6">
-          <%if(posts.user != user.id){ %>
+          <%if(posts[i].user == user.id){ %>
             <form
               action="/profile/deletePost/<%= posts[i].id %>?_method=DELETE"
               method="POST"
