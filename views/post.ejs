@@ -1,20 +1,33 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-6">
-      <h2><%= post.title %></h2>
-      <h2><%= user.userName %></h2>
-      <img class="img-fluid" src="<%= post.image%>" />
+<div class="grid grid-cols-9 pt-5">
+  <section class="col-start-2 col-span-5 bg-slate-300 px-8 py-4 ">
+  <div class="row justify-content-center">
+    <div class="grid grid-cols-6">
+      <h2 class="card-title col-start-1 col-span-4"><%= post.title %></h2>
+      <h2 class="card-title col-start-5 col-span-2 justify-self-end"><%= user.userName %></h2>
+    </div>
+    <div class="py-4">
+      <img src="<%= post.image%>" />
+    </div>
+    <div class="grid grid-cols-6 flex">
+      <p class="col-start-1 col-span-4"> <%= post.caption %></p>
+      <div class="col-start-5 justify-self-end"><h4 class="font-bold">Location:</h4> <%= post.location %></div>
+      <div class="col-start-6 justify-self-end"><h4 class="font-bold">Trail Name:</h4> <%= post.trailName %></div>
+    </div>
+  </section>
+    <div class="col-start-7 col-span-3">
+      <h2 class="card-title"><%= post.title %></h2>
+      
+     
+      
+    </div>
       <div class="row justify-content-between">
         <form
           class="col-1"
           action="/post/likePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
-        <h4>Location:</h4>
-        <h4><%= post.location %></h4>
-        <h4>Trail Name:</h4>
-        <h4><%= post.trailName %></h4>
+       
           <button class="btn btn-primary fa fa-heart" type="submit"></button>
         </form>
         <h3 class="col-3">Likes: <%= post.likes %></h3>
@@ -27,7 +40,7 @@
           <button class="btn btn-primary fa fa-trash" type="submit"></button>
         </form>
         <%}%>
-      </div>
+      
     </div>
     <div class="col-3 mt-5">
       <p><%= post.caption %></p>
