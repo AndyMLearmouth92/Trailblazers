@@ -13,14 +13,50 @@
       <p class="col-start-1 col-span-4"> <%= post.caption %></p>
       <div class="col-start-5 justify-self-end"><h4 class="font-bold">Location:</h4> <%= post.location %></div>
       <div class="col-start-6 justify-self-end"><h4 class="font-bold">Trail Name:</h4> <%= post.trailName %></div>
+      <div class="col-start-6 flex justify-between "><form
+      class="col-1"
+      action="/post/likePost/<%= post.id %>?_method=PUT"
+      method="POST"
+    >
+        <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
+        <h3 class="col-3">Likes: <%= post.likes %></h3>
+    </form>
+    <%if(post.user == user.id){ %>
+    <form
+      action="/post/deletePost/<%= post.id %>?_method=DELETE"
+      method="POST"
+      class="col-3"
+    >
+      <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
+    </form>
+    <%}%>
+  </div>
     </div>
+
+    
+        
+    <div class="col-3 mt-5">
+      
+
+      
+        
+          <ul class="row list-unstyled">
+            <% for(var i=0; i<comment.length; i++) {%>
+              <!-- For loop iterating through the posts array and spitting out each image and anchor tag on the feeds page. -->
+              <li class="col-6 justify-content-between mt-5">
+                <%= comment[i].comment%>
+              </li>
+            <% } %>
+            </ul>
+      
+
+    </div>
+  </div>
+
+
+
   </section>
-    <div class="col-start-7 col-span-3">
-      <h2 class="card-title"><%= post.title %></h2>
-      
-     
-      
-    </div>
+    
       <div class="row justify-content-between">
         <form
           class="col-1"

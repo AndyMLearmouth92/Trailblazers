@@ -3725,6 +3725,10 @@ html {
   grid-column-start: 9;
 }
 
+.row-start-2 {
+  grid-row-start: 2;
+}
+
 .m-4 {
   margin: 1rem;
 }
@@ -3813,6 +3817,10 @@ html {
 
 .inline-block {
   display: inline-block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -3976,6 +3984,14 @@ html {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .gap-4 {
