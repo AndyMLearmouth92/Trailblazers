@@ -40,6 +40,16 @@
           <div class="form-control mt-3">
             <button class="btn btn-grey">Login</button>
           </div>
+          <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger bg-slate-300 text-red-600 justify-start"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-info justify-start"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
         </form>
         </div>
       </div>
@@ -47,56 +57,3 @@
   </div>
 </div>
 <%- include('partials/footer') -%>
-
-
-<!-- 
-<div class="signup-container"></div>
-<main class="">
-    <section class="">
-        <div class="">
-            <section class="col-6 mt-5">
-                <% if (locals.messages.errors) { %>
-                    <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-danger bg-slate-200"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <% if (locals.messages.info) { %>
-                    <% messages.info.forEach( el => { %>
-                        <div class="alert alert-info"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                
-                <form class="grid grid-cols-5" action="/signup" method="POST">
-                <div class="col-start-2">
-                    <div class="mb-3 form-control w-full max-w-xs file-input-lg">
-                      <label for="userName" class="form-label">User Name</label>
-                      <input type="text" class="form-control" class="input input-bordered w-full max-w-xs form-control" id="userName" name="userName" />
-                    </div>
-
-                    <div class="mb-3 form-control w-full max-w-xs file-input-lg">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" class="input input-bordered w-full max-w-xs form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
-                    </div>
-                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                  </div>
-
-                  <div class="col-start-4">
-                    <div class="mb-3 form-control w-full max-w-xs file-input-lg">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" class="input input-bordered w-full max-w-xs form-control" id="password" name="password" />
-                    </div>
-
-                    <div class="mb-3 form-control w-full max-w-xs file-input-lg">
-                      <label for="confirmPassword" class="form-label">Confirm Password</label>
-                      <input type="password" class="form-control" class="input input-bordered w-full max-w-xs" id="confirmPassword" name="confirmPassword" />
-                    </div>
-                    <button type="submit" class="btn btn-primary col-start-4 mt-4">Submit</button>
-                  </div>
-                   
-                  </form>
-            </section>
-        </div>
-      </section>
-    </main> -->
-    <!-- Form to sign up to the social media site. It has an input for user name, email address, password, confirm email address and confirm password. There is a div which states we will not share your email with anyone and a button for submitting the form. -->
-
