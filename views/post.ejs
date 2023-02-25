@@ -41,8 +41,12 @@
         <div class="chat chat-start">
           <div class="chat-image avatar">
             <div class="w-10 rounded-full">
-              <img src="<%= user.profilePhoto%>" />
+              <img src="<%= comment[i].user.profilePhoto%>" /> Edit here
             </div>
+          </div>
+          <div class="chat-header">
+            <%= comment[i].user.userName%>
+            <time class="text-xs opacity-50"><%= comment[i].createdAt%></time>
           </div>
           <div class="chat-bubble"><%= comment[i].comment%></div>
         </div>
