@@ -30,7 +30,7 @@ module.exports = {
       const users = await User.find({ _id: req.user.id });
        // Tells the model to grab all posts from the database. An array of objects is created and they are sorted in descendings order based on date/time.
        //Lean is mongoose and states give me the object and take the extra document stuff away. This improves speed.
-      res.render("feed.ejs", { posts: posts, users: users });
+      res.render("feed.ejs", { posts: posts, user: users });
       // Tells the feed.ejs to render the posts.
     } catch (err) {
       console.log(err);

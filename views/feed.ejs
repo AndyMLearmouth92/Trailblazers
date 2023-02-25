@@ -6,7 +6,7 @@
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li><%= posts[i].title %></li>
-          <li><%= users[i].userName %></li>
+          <li><%= user[i].userName %></li>
           <!-- For loop iterating through the posts array and spitting out each image and anchor tag on the feeds page. -->
           <li class="col-6 justify-content-between mt-5">
             <a href="/post/<%= posts[i]._id%>">

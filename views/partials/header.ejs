@@ -44,7 +44,11 @@
         </div>
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
+            <% if (user == undefined) { %>
+              <img src="/Images/dog-983014_1920.jpg" />
+          <% } else {%>            
             <img src="<%= user.profilePhoto%>" />
+          <% }%>
           </div>
         </label>
         <ul>

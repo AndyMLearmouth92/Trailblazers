@@ -9,6 +9,7 @@ exports.getLogin = (req, res) => {
   }
   res.render("login", {
     title: "Login",
+    user: req.user,
     // If the user is not already logged in it will render the login page.
   });
 };
@@ -70,8 +71,9 @@ exports.getSignup = (req, res) => {
     return res.redirect("/profile");
   }
   // If request.user is truthy it redirects to the profile. If falsy it will render the sign up page and a title saying create account.
-  res.render("signup", {
+  res.render("signup", { 
     title: "Create Account",
+    user: req.user,
   });
 };
 
