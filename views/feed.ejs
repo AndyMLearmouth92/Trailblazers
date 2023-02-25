@@ -1,12 +1,83 @@
 <!-- Partials folder allows us to input the header and footer into each EJS file which makes the code dryer and more readable. -->
 
 <%- include('partials/header') -%>
+
+<section class="border border-slate-900 grid grid-cols-3 gap-4 border-black m-4 p-4" >
+      
+  <div class="col-start-1 col-span-2 grid grid-cols-9 py-2">
+    <h2 class="col-start-1 text-2xl">Feed:</h2>
+  </div>
+  <div>
+    <a class="col-start-3 col-span-2 flex justify-center" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-3/5">Add Post</button></a>
+  </div>
+  <% for(var i=0; i<posts.length; i++) {%>
+  <div class="card card-compact w-fit bg-slate-100 shadow-xl m-2">
+    <figure class="h-72 bg-contain"><a href="/post/<%= posts[i]._id%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
+    <div class="card-body flex grid grid-cols-3">
+      <div class="col-start-1 col-span-2">
+      <h2 class="card-title"><%= posts[i].title%></h2>
+      <p><%= posts[i].caption%></p>
+      </div>
+      <div class="col-start-3 col-span-1">
+        <h2 class="card-title"> <%= user.userName %></h2>
+        <div class="mb-2"><h5 class="font-bold">Location:</h5> <%= posts[i].location%></div>
+        
+        <div><h5 class="font-bold">Trail Name:</h5> <%= posts[i].trailName%></div>
+      </div>
+  </div>
+    <section class="grid grid-cols-6 card-body gap-0">
+      <div col-start-1 col-span-3>
+        <div class="rating rating-mdlg mt-2">
+          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+        </div>
+      </div>
+      <div class="card-actions justify-end col-start-4">
+        <form
+        class="col-1"
+        action="/feed/likePost/<%= posts[i]._id %>?_method=PUT"
+        method="POST"
+      >
+        <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
+        <h3>Likes: <%= posts[i].likes %></h3>
+      </form>
+    </div>
+    <div class ="flex justify-end col-start-5">
+      <button class="btn fa fa-comment bg-slate-900" type="submit"></button>
+      <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
+      
+    </div>
+    <div class="flex justify-end col-start-6">
+      <%if(posts[i].user == user.id){ %>
+        <form
+          action="/profile/deletePost/<%= posts[i].id %>?_method=DELETE"
+          method="POST"
+          class="col-3"
+        >
+          <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
+        </form>
+    </div>
+  </section>
+        <%}%>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</section>
+  
+</section>
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li><%= posts[i].title %></li>
-          <li><%= user[i].userName %></li>
+          
+          
+
+
           <!-- For loop iterating through the posts array and spitting out each image and anchor tag on the feeds page. -->
           <li class="col-6 justify-content-between mt-5">
             <a href="/post/<%= posts[i]._id%>">
