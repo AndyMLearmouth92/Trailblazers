@@ -15,7 +15,7 @@ router.get("/", homeController.getIndex);
 router.get("/profile", ensureAuth, postsController.getProfile);
 
 //Get request, ensuring we are logged in, use post controller and the getProfile method.
-router.get("/feed", ensureAuth, postsController.getFeed);
+
 // Get request on the feed route via the post controller using the get feed method.
 router.get("/login", authController.getLogin);
 // Get request on the login route to the auth controller using the getLogin method.

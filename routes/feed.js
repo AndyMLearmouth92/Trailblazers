@@ -9,7 +9,7 @@ const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 const feedsController = require("../controllers/feed");
 // For passprt.JS
-
+router.get("/", ensureAuth, feedsController.getFeed);
 router.put("/likePost/:id", feedsController.likePost);
 // Put request uses post ID and sends to the posts controller and the like post method.
 
