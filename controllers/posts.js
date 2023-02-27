@@ -14,29 +14,7 @@ module.exports = {
       console.log(err);
     }
   },
-  getProfile: async (req, res) => {
-    try {
-      const posts = await Post.find({ user: req.user.id });
-      // Go to post collection and find documents that have a userID property that matches the user ID. This profile only works for the logged in user. 
-      res.render("profile.ejs", { posts: posts, user: req.user });
-     // Tells the view to render the posts that match the userID in the view - profile EJS.
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  getFeed: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      const users = await User.find({ _id: req.user.id });
-       // Tells the model to grab all posts from the database. An array of objects is created and they are sorted in descendings order based on date/time.
-       //Lean is mongoose and states give me the object and take the extra document stuff away. This improves speed.
-      res.render("feed.ejs", { posts: posts, user: users });
-      // Tells the feed.ejs to render the posts.
-    } catch (err) {
-      console.log(err);
-    }
-  },
- 
+  
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
