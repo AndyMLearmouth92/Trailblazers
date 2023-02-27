@@ -8,7 +8,7 @@
     <h2 class="col-start-1 text-2xl">Feed:</h2>
   </div>
   <div>
-    <a class="col-start-3 col-span-2 flex justify-center" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-3/5">Add Post</button></a>
+    <a class="col-start-3 col-span-2 flex justify-end" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-2/5">Add Post</button></a>
   </div>
   <% for(var i=0; i<posts.length; i++) {%>
   <div class="card card-compact w-fit bg-slate-100 shadow-xl m-2">
@@ -69,36 +69,5 @@
 </section>
   
 </section>
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li><%= posts[i].title %></li>
-          
-          
-
-
-          <!-- For loop iterating through the posts array and spitting out each image and anchor tag on the feeds page. -->
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-          <h5>Location:</h5>
-          <li><%= posts[i].location %></li>
-          <h5>Trail Name:</h5>
-          <li><%= posts[i].trailName %></li>
-          <li><%= posts[i].likes %></li>
-        <div class="row justify-content-between">
-        <form
-          class="col-1"
-          action="/feed/likePost/<%= posts[i]._id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
-        <% } %>
-        </ul>
-    </div>
-  </div>  
+  
 <%- include('partials/footer') -%>
