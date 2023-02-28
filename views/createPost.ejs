@@ -42,6 +42,21 @@
             </label>
             <input type="file" class="file-input file-input-bordered file-input-slate-900 w-full text-black" id="imageUpload" name="file" />
           </div>
+
+          <div class="form-control">
+          <div class="rating rating-lg mt-2 flex flex-col">
+            <label class="rating">
+              <span class="label-text">Rating</span>
+            </label>
+            <div class="self-start">
+            <input type="radio" name="rating" value='1' id="rating1" class="mask mask-star-2 bg-slate-900" />
+            <input type="radio" name="rating" value='2' id="rating2" class="mask mask-star-2 bg-slate-900" checked />
+            <input type="radio" name="rating" value='3' id="rating3" class="mask mask-star-2 bg-slate-900" />
+            <input type="radio" name="rating" value='4' id="rating4" class="mask mask-star-2 bg-slate-900" />
+            <input type="radio" name="rating" value='5' id="rating5" class="mask mask-star-2 bg-slate-900" />
+          </div>
+          </div>
+        </div>
           
           <div class="form-control mt-3">
             <button class="btn btn-grey">Post</button>

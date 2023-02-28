@@ -8,7 +8,8 @@ module.exports = {
     try {
       const posts = await Post.find({ user: req.user.id });
       // Go to post collection and find documents that have a userID property that matches the user ID. This profile only works for the logged in user. 
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      res.render("profile.ejs", { posts: posts, user: req.user, });
+      console.log(posts)
      // Tells the view to render the posts that match the userID in the view - profile EJS.
     } catch (err) {
       console.log(err);
@@ -50,11 +51,12 @@ module.exports = {
         trailName: req.body.trailName,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        // We may need the ID to delete it. 
+        rating: req.body.rating,
         caption: req.body.caption,
         likes: 0,
         user: req.user.id,
       });
+      console.log(rating)
       // Passes the request through to the post model, following the schema and console logs that post has been added. Refreshes
       console.log("Post has been added!");
       res.redirect("/profile");

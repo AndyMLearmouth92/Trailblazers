@@ -3646,6 +3646,24 @@ html {
   left: initial;
 }
 
+.rating-md input {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.rating-lg input {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.rating-half.rating-md input:not(.rating-hidden) {
+  width: 0.75rem;
+}
+
+.rating-half.rating-lg input:not(.rating-hidden) {
+  width: 1.25rem;
+}
+
 .avatar.online:before {
   content: "";
   position: absolute;
@@ -3938,6 +3956,14 @@ html {
   margin-bottom: 1rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -4117,6 +4143,10 @@ html {
   flex-direction: column;
 }
 
+.content-start {
+  align-content: flex-start;
+}
+
 .justify-start {
   justify-content: flex-start;
 }
@@ -4153,12 +4183,20 @@ html {
   place-self: center;
 }
 
+.self-start {
+  align-self: flex-start;
+}
+
 .self-center {
   align-self: center;
 }
 
 .justify-self-auto {
   justify-self: auto;
+}
+
+.justify-self-start {
+  justify-self: start;
 }
 
 .justify-self-end {
@@ -4282,6 +4320,11 @@ html {
 .bg-slate-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
