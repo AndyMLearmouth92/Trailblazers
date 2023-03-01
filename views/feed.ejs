@@ -50,7 +50,7 @@
       
     </div>
     <div class="flex justify-end col-start-6">
-      <%if(posts[i].user == user.id){ %>
+      <%if(posts[i].user._id == user.id){ %>
         <form
           action="/profile/deletePost/<%= posts[i].id %>?_method=DELETE"
           method="POST"
