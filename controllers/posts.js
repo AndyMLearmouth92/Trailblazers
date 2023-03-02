@@ -9,7 +9,6 @@ module.exports = {
       const posts = await Post.find({ user: req.user.id });
       // Go to post collection and find documents that have a userID property that matches the user ID. This profile only works for the logged in user. 
       res.render("profile.ejs", { posts: posts, user: req.user, });
-      console.log(posts)
      // Tells the view to render the posts that match the userID in the view - profile EJS.
     } catch (err) {
       console.log(err);
@@ -20,7 +19,6 @@ module.exports = {
     try {
       const post = await Post.findById(req.params.id);
       const comment = await Comment.find({post: req.params.id}).sort({ createdAt: "asc" }).populate('user').lean();
-      console.log(comment)
       // Finding the post by the post ID which comes from the get request route.
       res.render("post.ejs", { post: post, user: req.user, comment: comment, });
       // Sends the information to the post.ejs view which will render it. Req.user is the current session and relates to cookies stored in the database.
@@ -56,7 +54,6 @@ module.exports = {
         likes: 0,
         user: req.user.id,
       });
-      console.log(rating)
       // Passes the request through to the post model, following the schema and console logs that post has been added. Refreshes
       console.log("Post has been added!");
       res.redirect("/profile");
