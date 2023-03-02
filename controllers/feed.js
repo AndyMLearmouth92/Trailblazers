@@ -4,7 +4,7 @@ const Comment = require("../models/Comment");
 const User = require("../models/User");
 
 module.exports = {
-
+// Should try and delete and get this through the profile route
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.params.id });
@@ -26,18 +26,6 @@ module.exports = {
     }
   },
  
-  getPost: async (req, res) => {
-    try {
-      const post = await Post.findById(req.params.id);
-      const comment = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      // Finding the post by the post ID which comes from the get request route.
-      res.render("post.ejs", { post: post, user: req.user, comment: comment, });
-      // Sends the information to the post.ejs view which will render it. Req.user is the current session and relates to cookies stored in the database.
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(

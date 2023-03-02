@@ -4,6 +4,8 @@ const Comment = require("../models/Comment");
 const User = require("../models/User");
 
 module.exports = {
+
+//Should this go through profile controller
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
@@ -26,6 +28,7 @@ module.exports = {
       console.log(err);
     }
   },
+
   getPostPage: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
@@ -37,6 +40,7 @@ module.exports = {
       console.log(err);
     }
   },
+
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
