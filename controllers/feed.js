@@ -4,6 +4,18 @@ const Comment = require("../models/Comment");
 const User = require("../models/User");
 
 module.exports = {
+
+  getProfile: async (req, res) => {
+    try {
+      const posts = await Post.find({ user: req.params.id });
+      const users = await User.findById(req.params.id);
+      res.render("profile.ejs", { posts: posts, user: users });
+     // Tells the view to render the posts that match the userID in the view - profile EJS.
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).populate('user').lean();
