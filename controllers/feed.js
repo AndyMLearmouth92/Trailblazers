@@ -10,7 +10,6 @@ module.exports = {
       const posts = await Post.find({ user: req.params.id });
       const users = await User.findById(req.params.id);
       res.render("profile.ejs", { posts: posts, user: users });
-     // Tells the view to render the posts that match the userID in the view - profile EJS.
     } catch (err) {
       console.log(err);
     }
@@ -34,7 +33,6 @@ module.exports = {
           $inc: { likes: 1 },
         }
       );
-      // Speaks to the model and finds document where the ID matches the one in the request and increases likes by 1. Console logs this and redirects to the specific post using the ID.
       console.log("Likes +1");
       res.redirect(`/feed`);
     } catch (err) {

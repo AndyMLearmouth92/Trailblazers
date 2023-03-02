@@ -6,10 +6,8 @@ module.exports = {
  
   getEditProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
-      // Go to post collection and find documents that have a userID property that matches the user ID. This profile only works for the logged in user. 
+      const posts = await Post.find({ user: req.user.id }); 
       res.render("editProfile.ejs", { posts: posts, user: req.user });
-     // Tells the view to render the posts that match the userID in the view - profile EJS.
     } catch (err) {
       console.log(err);
     }
@@ -17,7 +15,6 @@ module.exports = {
  
   editProfile: async (req, res) => {
     try {
-      // Upload image to cloudinary
       if(req.file != undefined){
       const result = await cloudinary.uploader.upload(req.file.path);
       await User.findOneAndUpdate(
@@ -56,8 +53,6 @@ module.exports = {
         )
         console.log('Successfully changed bio')
       }
-      // We need cloudinary to respond with the URL
-      console.log(req.body)
       res.redirect("/editProfile");
     } catch (err) {
       console.log(err);
