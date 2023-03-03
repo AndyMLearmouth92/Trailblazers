@@ -8,8 +8,8 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.params.id });
-      const users = await User.findById(req.params.id);
-      res.render("profile.ejs", { posts: posts, user: users });
+      const user = await User.findById(req.params.id);
+      res.render("profile.ejs", { posts: posts, user: user, loggedInUser: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -19,7 +19,7 @@ module.exports = {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).populate('user').lean();
       console.log(posts)
-      res.render("feed.ejs", { posts: posts, user: req.user });
+      res.render("feed.ejs", { posts: posts, user: req.user, loggedInUser: req.user });
     } catch (err) {
       console.log(err);
     }

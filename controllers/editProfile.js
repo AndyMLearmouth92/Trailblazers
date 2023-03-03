@@ -7,7 +7,7 @@ module.exports = {
   getEditProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id }); 
-      res.render("editProfile.ejs", { posts: posts, user: req.user });
+      res.render("editProfile.ejs", { posts: posts, user: req.user, loggedInUser: req.user });
     } catch (err) {
       console.log(err);
     }

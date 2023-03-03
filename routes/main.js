@@ -12,8 +12,6 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/", homeController.getIndex);
 //Cannot use profile route as throws and error on the image
-router.get("/profile", ensureAuth, postsController.getProfile);
-
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);

@@ -9,7 +9,7 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user, });
+      res.render("profile.ejs", { posts: posts, loggedInUser: req.user});
     } catch (err) {
       console.log(err);
     }
@@ -29,7 +29,7 @@ module.exports = {
     try {
       const post = await Post.findById(req.params.id);
       const comment = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("createPost.ejs", { posts: post, user: req.user, comment: comment, });
+      res.render("createPost.ejs", { posts: post, user: req.user, comment: comment, loggedInUser: req.user });
     } catch (err) {
       console.log(err);
     }

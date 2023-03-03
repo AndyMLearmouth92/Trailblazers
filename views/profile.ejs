@@ -8,14 +8,16 @@
       <div class="avatar">
         <div class="w-52 absolute">
           <img class="border-2" src="<%= user.profilePhoto%>"/>
+          <% if (user.id == loggedInUser._id) { %>
           <div class="flex justify-center">
             <a href="/editProfile"><button class="btn btn-outline mt-4 normal-case text-lg">Edit Profile</button></a>
           </div>
-          
+          <% } %>
         </div>
       </div>
     </div>
   </div>
+  
 
     <div class="col-start-3 flex">
         <h2 class='self-center mx-auto text-2xl font-bold'> <%= user.userName %></h2>
@@ -25,10 +27,10 @@
         <h5 class='self-center text-2xl font-bold'><%= posts.length%></h5>
         <h5 class='self-center text-lg'>Posts</h5>
     </div>
-
+    
     
   </main>
-  
+ 
   <section class="grid grid-cols-9">
     <section class="border border-2 col-start-2 col-span-2 my-4" >
       <div class="border border-4  bg-slate-300 p-3 h-56">
