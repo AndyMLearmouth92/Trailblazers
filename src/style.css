@@ -64,6 +64,10 @@ color: rgb(240, 131, 216);
 background: rgb(15 23 42);
 }
 
+.likesText{
+    color: rgb(240, 131, 216);
+    }
+
 .fa-trash:hover{
     color: gray;
     background: rgb(15 23 42);

@@ -34,6 +34,8 @@
           <%}%>
         </div>
       </div>
+
+      <% if (posts[i].user._id == user.id) { %>
       <div class="card-actions justify-end col-start-4">
         <form
         class="col-1"
@@ -41,7 +43,7 @@
         method="POST"
       >
         <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
-        <h3>Likes: <%= posts[i].likes %></h3>
+        <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
       </form>
     </div>
     <div class ="flex justify-end col-start-5">
@@ -50,7 +52,6 @@
       
     </div>
     <div class="flex justify-end col-start-6">
-      <%if(posts[i].user._id == user.id){ %>
         <form
           action="/feed/deletePost/<%= posts[i]._id %>?_method=DELETE"
           method="POST"
@@ -58,9 +59,27 @@
         >
           <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
         </form>
-    </div>
-  </section>
-        <%}%>
+    
+  <% } else {%>            
+    <div class="card-actions justify-end col-start-5">
+      <form
+      class="col-1"
+      action="/feed/likePost/<%= posts[i]._id %>?_method=PUT"
+      method="POST"
+    >
+      <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
+      <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
+    </form>
+  </div>
+  <div class ="flex justify-end col-start-6">
+    <button class="btn fa fa-comment bg-slate-900" type="submit"></button>
+    <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
+    
+  </div>
+</section>
+
+
+  <% }%>
       </div>
     </div>
   </div>
