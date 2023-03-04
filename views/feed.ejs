@@ -47,7 +47,7 @@
       </form>
     </div>
     <div class ="flex justify-end col-start-5">
-      <button class="btn fa fa-comment bg-slate-900" type="submit"></button>
+      <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
       <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
       
     </div>
@@ -72,9 +72,8 @@
     </form>
   </div>
   <div class ="flex justify-end col-start-6">
-    <button class="btn fa fa-comment bg-slate-900" type="submit"></button>
+    <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
     <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
-    
   </div>
 </section>
 

@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="grid grid-cols-6">
       <h2 class="card-title col-start-1 col-span-4"><%= post.title %></h2>
-      <h2 class="card-title col-start-5 col-span-2 justify-self-end"><%= user.userName %></h2>
+      <h2 class="card-title col-start-5 col-span-2 justify-self-end"><a href="/profile/<%= post.user._id%>"><%= user.userName %></h2></a>
     </div>
     <div class="py-4">
       <img src="<%= post.image%>" />
@@ -20,7 +20,7 @@
       method="POST"
     >
         <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
+        <h3 class="col-3 flex justify-center font-bold likesText"><%= post.likes %></h3>
     </form>
     <%if(post.user == user.id){ %>
     <form
@@ -42,14 +42,14 @@
       <% for(var i=0; i<comment.length; i++) {%>
         <div class="chat chat-start">
           <div class="chat-image avatar">
-            <a href="/profile"><div class="w-10 rounded-full">
+            <a href="/profile/<%= comment[i].user._id%>"><div class="w-10 rounded-full">
               <img src="<%= comment[i].user.profilePhoto%>" /></a> Edit here
             </div>
           </div>
-          <a href="/profile"><div class="chat-header">
+          <a href="/profile/<%= comment[i].user._id%>"><div class="chat-header">
             <%= comment[i].user.userName%>
           </div></a>
-          <div class="chat-bubble"><%= comment[i].comment%></div>
+          <div class="chat-bubble bg-slate-900"><%= comment[i].comment%></div>
         </div>
       <% } %>
       <form action="/comment/createComment/<%= post.id%>" method="POST">
