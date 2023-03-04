@@ -17,14 +17,14 @@ module.exports = {
   
   likePost: async (req, res) => {
     try {
-      await Post.findOneAndUpdate(
+      const post = await Post.findOneAndUpdate(
         { _id: req.params.id },
         {
           $inc: { likes: 1 },
         }
       );
       console.log("Likes +1");
-      res.redirect(`/profile`);
+      res.redirect(`/profile/${post.user}`);
     } catch (err) {
       console.log(err);
     }
