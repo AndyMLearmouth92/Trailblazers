@@ -8,6 +8,7 @@ module.exports = {
         likes: 0,
         post: req.params.id,
         user: req.user.id,
+        loggedInUser: req.user,
       });
       // Passes the request through to the post model, following the schema and console logs that post has been added. Refreshes
       console.log("Comment has been added!");

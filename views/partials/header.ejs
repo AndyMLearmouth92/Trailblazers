@@ -35,10 +35,15 @@
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1 text-xl">
+          <% if (loggedInUser != undefined) { %>
           <li><a href="/profile/<%= loggedInUser._id%>">Profile</a></li>
+          
+
+          <!-- Andy to correct the nav bar -->
           <li><a href="/feed">Feed</a></li>
           <li><a href="/post" >Post</a></li>
         </ul>
+       
         <div class="form-control">
           <input type="text" placeholder="Search" class="input input-bordered" />
         </div>
@@ -53,9 +58,11 @@
         </label>
         <ul>
           <a href="/logout"><li class="col-3 bg-transparent hover:bg-slate-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">Sign Out</li></a>
+          <% } %>
         </ul>
       </div>
     </div>
+    
 
     <!-- <header class="container">
       <div class="text-center">
