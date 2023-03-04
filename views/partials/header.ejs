@@ -52,7 +52,7 @@
             <% if (user == undefined) { %>
               <img src="/Images/dog-983014_1920.jpg" />
           <% } else {%>            
-            <img src="<%= loggedInUser.profilePhoto%>" />
+            <a href="/profile/<%= loggedInUser._id%>"><img src="<%= loggedInUser.profilePhoto%>" /></a>
           <% }%>
           </div>
         </label>
