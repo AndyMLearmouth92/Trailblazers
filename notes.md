@@ -2,4 +2,4 @@
 //post page wrong username - FIXED
 // cannot like posts from another users profile or your own profile  - FIXED
 // delete button appears on another persons profile
-// on submission of post does not take to profile
+// on submission of post does not take to profile - FIXED takes to Feed

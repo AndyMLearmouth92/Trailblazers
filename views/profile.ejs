@@ -72,6 +72,7 @@
               <%}%>
             </div>
           </div>
+          <%if(posts[i].user._id == loggedInUser.id){ %>
           <div class="card-actions justify-end col-start-4">
             <form
             class="col-1"
@@ -87,8 +88,8 @@
           <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
           
         </div>
+        
         <div class="flex justify-end col-start-6">
-          <%if(posts[i].user == user.id){ %>
             <form
               action="/profile/deletePost/<%= posts[i].id %>?_method=DELETE"
               method="POST"
@@ -96,6 +97,22 @@
             >
               <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
             </form>
+        </div>
+        <% } else {%>   
+          <div class="card-actions justify-end col-start-5">
+            <form
+            class="col-1"
+            action="/profile/likePost/<%= posts[i].id %>?_method=PUT"
+            method="POST"
+          >
+            <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
+            <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
+          </form>
+        </div>
+        <div class ="flex justify-end col-start-6">
+         <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
+          <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
+          
         </div>
       </section>
             <%}%>
