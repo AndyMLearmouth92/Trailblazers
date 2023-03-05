@@ -36,9 +36,9 @@ module.exports = {
       await cloudinary.uploader.destroy(post.cloudinaryId);
       await Post.remove({ _id: req.params.id });
       console.log("Deleted Post");
-      res.redirect("/profile");
+      res.redirect(`/profile/${req.user.id}`);
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect(`/profile/${req.user.id}`);
     }
   },
 };
