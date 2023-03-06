@@ -30,16 +30,19 @@
   <body class="bg-slate-200">
     
     <div class="navbar bg-slate-900 text-white">
+      <% if (loggedInUser == undefined) { %>
       <div class="flex-1">
         <a href="/" class="btn btn-ghost normal-case text-4xl">Trailblazers</a>
       </div>
+      <% } else {%>  
+        <div class="flex-1">
+          <a href="/feed" class="btn btn-ghost normal-case text-4xl">Trailblazers</a>
+        </div>
+      <% } %>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1 text-xl">
           <% if (loggedInUser != undefined) { %>
           <li><a href="/profile/<%= loggedInUser._id%>">Profile</a></li>
-          
-
-          <!-- Andy to correct the nav bar -->
           <li><a href="/feed">Feed</a></li>
           <li><a href="/post" >Post</a></li>
         </ul>

@@ -6,7 +6,8 @@
 
 
 
-// delete button on post page? move like button across if not your post
+// delete button on post page? move like button across if not your post - FIXED
+
 // index if logged in?
 
-// delete post takes to profile (doesnt work)
+// delete post takes to profile (doesnt work) - FIXED
