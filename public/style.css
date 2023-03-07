@@ -3787,6 +3787,11 @@ html {
   flex-shrink: 0;
 }
 
+.break-after-right {
+  -moz-column-break-after: right;
+       break-after: right;
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -4205,6 +4210,26 @@ button.btn-grey:hover{
 }
 
 @media (min-width: 640px) {
+  .sm\:break-inside-auto {
+    -moz-column-break-inside: auto;
+         break-inside: auto;
+  }
+
+  .sm\:break-after-left {
+    -moz-column-break-after: left;
+         break-after: left;
+  }
+
+  .sm\:break-after-right {
+    -moz-column-break-after: right;
+         break-after: right;
+  }
+
+  .sm\:break-after-column {
+    -moz-column-break-after: column;
+         break-after: column;
+  }
+
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;

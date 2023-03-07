@@ -11,3 +11,9 @@
 // index if logged in?
 
 // delete post takes to profile (doesnt work) - FIXED
+
+Media queries:
+
+index - complete
+login - complete
+signup - complete
