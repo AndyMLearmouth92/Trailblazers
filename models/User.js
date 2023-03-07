@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const { stringify } = require("postcss");
 // Uses Mongoose
 
+
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
@@ -13,7 +14,7 @@ const UserSchema = new mongoose.Schema({
   location: {type: String, default: 'The world'},
   bio: {type: String, default: 'Enjoy hiking',},
 });
-// Sets us the schema for username, email and password.
+
 
 // Password hash middleware.
 UserSchema.pre("save", function save(next) {
