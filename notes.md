@@ -17,3 +17,4 @@ Media queries:
 index - complete
 login - complete
 signup - complete
+create a post - complete

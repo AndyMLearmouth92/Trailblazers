@@ -30,56 +30,49 @@
         <div><h5 class="font-bold">Trail Name:</h5> <%= posts[i].trailName%></div>
       </div>
   </div>
-    <section class="grid grid-cols-6 card-body gap-0">
-      <div col-start-1 col-span-3>
+    <section class="card-body flex flex-col sm:flex-row justify-center gap-4 sm:justify-between">
+      <div class="self-center ">
         <h5 class="font-bold">Rating:</h5>
-        <div class="rating rating-mdlg mt-2">
+        <div class="rating rating-mdlg mb-2 ">
           <% for(var j=0; j<posts[i].rating; j++) {%>
           <input type="" name="rating-2" class="mask mask-star-2 bg-slate-900" />
           <%}%>
         </div>
       </div>
 
+      <!-- outer div -->
+      <div class="flex flex-row justify-center gap-4 sm:self-end">
       <% if (posts[i].user._id == user.id) { %>
-      <div class="card-actions justify-end col-start-4">
         <form
-        class="col-1"
+        class=""
         action="/feed/likePost/<%= posts[i]._id %>?_method=PUT"
         method="POST"
       >
         <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
         <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
       </form>
-    </div>
-    <div class ="flex justify-end col-start-5">
       <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
       <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
       
-    </div>
-    <div class="flex justify-end col-start-6">
         <form
           action="/feed/deletePost/<%= posts[i]._id %>?_method=DELETE"
           method="POST"
-          class="col-3"
+          class=""
         >
           <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
         </form>
     
-  <% } else {%>            
-    <div class="card-actions justify-end col-start-5">
+  <% } else {%>      
       <form
-      class="col-1"
+      class=""
       action="/feed/likePost/<%= posts[i]._id %>?_method=PUT"
       method="POST"
     >
       <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
       <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
     </form>
-  </div>
-  <div class ="flex justify-end col-start-6">
     <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
     <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
-  </div>
 </section>
 
 
@@ -89,6 +82,7 @@
   </div>
   
   <% } %>
+</div>
 </section>
 
   
