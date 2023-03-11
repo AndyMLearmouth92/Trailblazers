@@ -18,3 +18,4 @@ index - complete
 login - complete
 signup - complete
 create a post - complete
+Post page - complete
