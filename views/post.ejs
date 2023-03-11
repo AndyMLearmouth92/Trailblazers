@@ -12,11 +12,11 @@
     </div>
     <div class="grid grid-cols-12 flex">
       <p class="col-start-1 sm:col-span-7 col-span-12"> <%= post.caption %></p>
-      <div class="row start-3 col-start-1 col-span-6 sm:row-start-1 sm:col-start-9 sm:col-span-2 justify-self-start"><h4 class="font-bold">Location:</h4> <%= post.location %></div>
-      <div class="col-start-7 col-span-6 sm:row-start-1 sm:col-start-11 sm:col-span-2 justify-self-end"><h4 class="font-bold">Trail Name:</h4> <%= post.trailName %></div>
+      <div class="row start-3 col-start-1 col-span-6 sm:row-start-1 sm:col-start-9 sm:col-span-2 justify-self-start mt-4"><h4 class="font-bold">Location:</h4> <%= post.location %></div>
+      <div class="col-start-7 col-span-6 sm:row-start-1 sm:col-start-11 sm:col-span-2 justify-self-end mt-4"><h4 class="font-bold">Trail Name:</h4> <%= post.trailName %></div>
     </div>
-      <%if(post.user.id == loggedInUser._id){ %>
-        <div class="grid grid-cols-9 flex mt-4">
+    <%if(post.user.id == loggedInUser._id){ %>
+    <div class="grid grid-cols-9 flex mt-4">
       <div class="sm:col-start-8 flex sm:justify-end justify-self-center col-start-1 col-span-9 gap-4">
         <form
       class="col-1"
@@ -37,8 +37,8 @@
     </form>
 </div>
     <% } else {%>   
-      <div class="grid grid-cols-9 flex">
-      <div class="col-start-9 flex justify-end">
+      <div class="grid grid-cols-9 flex mt-4">
+      <div class="col-start-1 col-span-9 flex justify-center sm:justify-self-end">
         <form
       class="col-1"
       action="/post/likePost/<%= post.id %>?_method=PUT"
