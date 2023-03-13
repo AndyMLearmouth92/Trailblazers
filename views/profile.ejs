@@ -8,7 +8,7 @@
       <div class="avatar">
         <div class="w-52 absolute">
           <img class="border-2" src="<%= user.profilePhoto%>"/>
-          <% if (user.id == loggedInUser._id) { %>
+          <% if (user.userName == loggedInUser.userName) { %>
           <div class="flex justify-center">
             <a href="/editProfile"><button class="btn btn-outline mt-4 normal-case text-lg">Edit Profile</button></a>
           </div>
@@ -20,15 +20,13 @@
   
 
     <div class="col-start-3 flex">
-        <h2 class='self-center mx-auto text-2xl font-bold'> <%= user.userName %></h2>
+        <h2 class='self-center mx-auto text-2xl font-bold'> <%= user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2>
     </div>
 
     <div class="col-start-7 flex flex-col my-auto">
         <h5 class='self-center text-2xl font-bold'><%= posts.length%></h5>
         <h5 class='self-center text-lg'>Posts</h5>
     </div>
-    
-    
   </main>
  
   <section class="grid grid-cols-9">
@@ -50,7 +48,7 @@
       </div>
       <% for(var i=0; i<posts.length; i++) {%>
       <div class="card card-compact w-fit bg-slate-100 shadow-xl m-2">
-        <figure class="h-60"><a href="/post/<%= posts[i]._id%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
+        <figure class="h-60"><a href="/post/<%= posts[i].userName%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
         <div class="card-body flex grid grid-cols-3">
           <div class="col-start-1 col-span-2">
           <h2 class="card-title"><%= posts[i].title%></h2>
@@ -72,7 +70,7 @@
               <%}%>
             </div>
           </div>
-          <%if(posts[i].user._id == loggedInUser.id){ %>
+          <%if(posts[i].user.userName == loggedInUser.userName){ %>
           <div class="card-actions justify-end col-start-4">
             <form
             class="col-1"

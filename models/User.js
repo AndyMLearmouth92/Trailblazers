@@ -6,7 +6,7 @@ const { stringify } = require("postcss");
 
 
 const UserSchema = new mongoose.Schema({
-  userName: { type: String, unique: true },
+  userName: { type: String, unique: true, lowercase: true },
   email: { type: String, unique: true },
   password: String,
   profilePhoto: {type: String, default: 'https://res.cloudinary.com/dhgjf8v01/image/upload/v1676644661/mountain-425134_sbqobs.jpg'},

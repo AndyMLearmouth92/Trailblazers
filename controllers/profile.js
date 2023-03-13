@@ -6,7 +6,7 @@ module.exports = {
  
   getProfile: async (req, res) => {
     try {
-      const user = await User.findOne({userName : req.params.userName}).lean();
+      const user = await User.findOne({userName : req.params.userName.toLowerCase()}).lean();
       const posts = await Post.find({ user: user._id });
       res.render("profile.ejs", { posts: posts, user: user, loggedInUser: req.user});
     } catch (err) {
