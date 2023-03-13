@@ -36,7 +36,7 @@
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1 text-xl">
           <% if (loggedInUser != undefined) { %>
-          <li><a href="/profile/<%= loggedInUser._id%>">Profile</a></li>
+          <li><a href="/profile/<%= loggedInUser.userName%>">Profile</a></li>
           <li><a href="/feed">Feed</a></li>
           <li><a href="/post" >Post</a></li>
         </ul>

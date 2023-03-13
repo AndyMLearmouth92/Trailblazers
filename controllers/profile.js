@@ -6,8 +6,8 @@ module.exports = {
  
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.params.id });
-      const user = await User.findById(req.params.id);
+      const user = await User.findOne({userName : req.params.userName}).lean();
+      const posts = await Post.find({ user: user._id });
       res.render("profile.ejs", { posts: posts, user: user, loggedInUser: req.user});
     } catch (err) {
       console.log(err);
@@ -16,14 +16,11 @@ module.exports = {
   
   getProfileSearch: async (req, res) => {
     try {
-      const user = await User.findById({ userName: req.params.userName.toLowerCase() }).lean();
-      console.log(req.user.userName)
-      console.log(req.query)
-      res.render(`/profile/${req.user.id}`)
-      //res.render(`${req.query.user.toLowerCase()}`, {userName: req.params.userName, loggedInUser: req.user});
+      const user = await User.findOne({ userName: req.query.userName}).lean();
+      const posts = await Post.find({ user: user._id });
+      res.render("profile.ejs", { posts: posts, user: user, loggedInUser: req.user});
     } catch (err) {
-      //res.render(`${req.user.username}`);
-      res.render(`/profile/${req.user.id}`)
+      res.redirect(`/`)
     }
   },
   
