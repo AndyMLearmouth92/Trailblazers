@@ -58,7 +58,7 @@
             <% if (user == undefined) { %>
               <img src="/Images/dog-983014_1920.jpg" />
           <% } else {%>            
-            <a href="/profile/<%= loggedInUser._id%>"><img src="<%= loggedInUser.profilePhoto%>" /></a>
+            <a href="/profile/<%= loggedInUser.userName%>"><img src="<%= loggedInUser.profilePhoto%>" /></a>
           <% }%>
           </div>
         </label>
@@ -95,7 +95,7 @@
          
           <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-300 rounded-box w-52 text-slate-900">
             <li><a href="/feed">Feed</a></li>
-            <li><a href="/profile/<%= loggedInUser._id%>">Profile</a></li>
+            <li><a href="/profile/<%= loggedInUser.userName%>">Profile</a></li>
             <li><a href="/post">Post</a></li>
             <li><a href="">Search</a></li>
             <li><a href="/logout"> Sign out</a></li>
