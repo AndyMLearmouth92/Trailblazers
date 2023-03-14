@@ -4170,6 +4170,10 @@ html {
   padding: 1.25rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -4800,8 +4804,25 @@ button.btn-grey:hover{
     grid-column-start: 1;
   }
 
+  .lg\:col-start-4 {
+    grid-column-start: 4;
+  }
+
   .lg\:row-start-1 {
     grid-row-start: 1;
+  }
+
+  .lg\:m-4 {
+    margin: 1rem;
+  }
+
+  .lg\:m-2 {
+    margin: 0.5rem;
+  }
+
+  .lg\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .lg\:mb-5 {
@@ -4845,8 +4866,16 @@ button.btn-grey:hover{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:justify-end {
     justify-content: flex-end;
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
   }
 
   .lg\:justify-self-end {
@@ -4855,6 +4884,15 @@ button.btn-grey:hover{
 
   .lg\:border-r {
     border-right-width: 1px;
+  }
+
+  .lg\:p-4 {
+    padding: 1rem;
+  }
+
+  .lg\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .lg\:pr-6 {
