@@ -1,7 +1,5 @@
-<!-- Partials folder allows us to input the header and footer into each EJS file which makes the code dryer and more readable. -->
-
 <%- include('partials/header') -%>
-<section class="border border-slate-900 border-black m-4 p-4" >
+<section class="border border-slate-900 border-black m-4 p-2 lg:p-4" >
 
 <section class="grid grid-cols-9">
   <div class="col-start-1 col-span-2 py-2">
@@ -13,10 +11,10 @@
   </div>
 </section>
 
-<section class=" grid md:grid-cols-2 gap-4 sm:grid-cols-1 lg:grid-cols-3">
+<section class="grid md:grid-cols-2 gap-4 sm:grid-cols-1 lg:grid-cols-3">
   <% for(var i=0; i<posts.length; i++) {%>
   <div class="card card-compact w-fit bg-slate-100 shadow-xl m-2 max-w-md mx-auto">
-    <figure class="h-72 bg-contain"><a href="/post/<%= posts[i]._id%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
+    <figure class="h-60 lg:h-72"><a href="/post/<%= posts[i]._id%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
     <div class="card-body flex grid grid-cols-3">
       <div class="col-start-1 col-span-2">
       <h2 class="card-title"><%= posts[i].title%></h2>
@@ -31,7 +29,7 @@
       </div>
   </div>
     <section class="card-body flex flex-col sm:flex-row justify-center gap-4 sm:justify-between">
-      <div class="self-center ">
+      <div class="self-center">
         <h5 class="font-bold">Rating:</h5>
         <div class="rating rating-mdlg mb-2 ">
           <% for(var j=0; j<posts[i].rating; j++) {%>
@@ -52,7 +50,6 @@
         <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
       </form>
       <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
-      <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
       
         <form
           action="/feed/deletePost/<%= posts[i]._id %>?_method=DELETE"

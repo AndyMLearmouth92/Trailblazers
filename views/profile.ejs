@@ -30,7 +30,7 @@
   </main>
  
   <section class="grid grid-cols-9">
-    <section class="col-start-1 col-span-9 lg:col-span-2 lg:my-4 m-4" >
+    <section class="col-start-1 col-span-9 lg:col-start-2 lg:col-span-2 lg:my-4 m-4" >
       <div class="border border-4 bg-slate-300 p-3 h-56">
         <h3 class="font-extrabold">About:</h3>
         <p><i class="fa-solid fa-circle-info"></i> <%= user.bio%></p>
@@ -40,29 +40,29 @@
     </section>
     
 
-    <section class="row-start-2 lg:row-start-1 border border-slate-900 col-start-1 col-span-9 lg:col-start-4 lg:col-span-6 grid grid-cols-1 lg:grid-cols-2 gap-4 border-black mx-4 lg:m-4 p-1 lg:p-4" >
-      <div class="col-start-1 lg:col-span-2 grid grid-cols-9">
+    <section class="row-start-2 lg:row-start-1 border border-slate-900 col-start-1 col-span-9 lg:col-start-4 lg:col-span-6 grid grid-cols-1 lg:grid-cols-2 gap-4 border-black mx-4 lg:m-4 p-2 lg:p-4">
+      <div class="col-start-1 lg:col-span-2 grid grid-cols-9 pt-4 px-4">
         <h2 class="col-start-1 text-2xl">Posts:</h2>
-        <a class="col-start-8 col-span-2 flex justify-end" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-3/5">Add Post</button></a>
+        <a class="col-start-6 col-span-4 lg:col-start-6 lg:col-span-4 flex justify-end" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-full lg:w-3/5">Add Post</button></a>
       </div>
       
       <% for(var i=0; i<posts.length; i++) {%>
-      <div class="card card-compact w-fit bg-slate-100 shadow-xl m-2">
-        <figure class="h-60"><a href="/post/<%= posts[i].userName%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
+      <div class="card card-compact w-fit bg-slate-100 shadow-xl">
+        <figure class="h-60 lg:h-72"><a href="/post/<%= posts[i].userName%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
         <div class="card-body flex grid grid-cols-3">
           <div class="col-start-1 col-span-2">
           <h2 class="card-title"><%= posts[i].title%></h2>
           <p><%= posts[i].caption%></p>
           </div>
           <div class="col-start-3 col-span-1">
-            <h2 class="card-title"> <%= user.userName %></h2>
+            <h2 class="card-title"> <%= user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2>
             <div class="mb-2"><h5 class="font-bold">Location:</h5> <%= posts[i].location%></div>
             
             <div><h5 class="font-bold">Trail Name:</h5> <%= posts[i].trailName%></div>
           </div>
       </div>
-        <section class="grid grid-cols-6 card-body gap-0">
-          <div col-start-1 col-span-3>
+        <section class="card-body flex flex-col sm:flex-row justify-center gap-4 sm:justify-between">
+          <div class="col-start-1 col-span-3 self-center">
             <h5 class="font-bold">Rating:</h5>
             <div class="rating rating-mdlg mt-2">
               <% for(var j=0; j<posts[i].rating; j++) {%>
@@ -70,8 +70,8 @@
               <%}%>
             </div>
           </div>
-          <%if(posts[i].user.userName == loggedInUser.userName){ %>
-          <div class="card-actions justify-end col-start-4">
+          <%if(posts[i].user.userName == user.userName){ %>
+          <div class="flex flex-row justify-center gap-4 sm:self-end">
             <form
             class="col-1"
             action="/profile/likePost/<%= posts[i].id %>?_method=PUT"
@@ -80,22 +80,18 @@
             <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
             <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
           </form>
-        </div>
-        <div class ="flex justify-end col-start-5">
-         <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
-          <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
-          
-        </div>
         
-        <div class="flex justify-end col-start-6">
+         <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>          
+      
             <form
-              action="/profile/deletePost/<%= posts[i].id %>?_method=DELETE"
+              action="/profile/deletePost/<%= posts[i]._id %>?_method=DELETE"
               method="POST"
               class="col-3"
             >
               <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
             </form>
         </div>
+
         <% } else {%>   
           <div class="card-actions justify-end col-start-5">
             <form
@@ -109,8 +105,6 @@
         </div>
         <div class ="flex justify-end col-start-6">
          <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
-          <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
-          
         </div>
       </section>
             <%}%>
@@ -122,7 +116,6 @@
       
     </section>
 </div>
-
 </main>
 
 <%- include('partials/footer') -%>
