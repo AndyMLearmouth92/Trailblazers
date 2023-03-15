@@ -4,24 +4,24 @@
 
 <main class="grid grid-cols-7 bg-slate-300">
   <div class="col-start-2" >
-    <div class="w-full h-28 bg-slate-300">
+    <div class="w-full h-28 md:h-36 bg-slate-300">
       <div class="avatar">
-        <div class="w-52 absolute">
+        <div class="w-32 md:w-52 absolute">
           <img class="border-2" src="<%= user.profilePhoto%>"/>
+          <h2 class="flex justify-center text-xl md:text-2xl font-bold pt-1"> <%= user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2>
           <% if (user.userName == loggedInUser.userName) { %>
-          <div class="flex justify-center">
+          <div class="hidden md:flex justify-center">
             <a href="/editProfile"><button class="btn btn-outline mt-4 normal-case text-lg">Edit Profile</button></a>
+          </div>
+          <div class="flex md:hidden justify-center">
+            <a href="/editProfile"><button class="btn btn-sm btn-outline mt-2 normal-case text-lg">Edit Profile</button></a>
           </div>
           <% } %>
         </div>
       </div>
     </div>
   </div>
-  
 
-    <div class="col-start-3 flex">
-        <h2 class='self-center mx-auto text-2xl font-bold'> <%= user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2>
-    </div>
 
     <div class="col-start-7 flex flex-col my-auto">
         <h5 class='self-center text-2xl font-bold'><%= posts.length%></h5>
@@ -30,7 +30,7 @@
   </main>
  
   <section class="grid grid-cols-9">
-    <section class="col-start-1 col-span-9 lg:col-start-2 lg:col-span-2 lg:my-4 m-4" >
+    <section class="col-start-1 col-span-9 lg:col-start-1 lg:col-span-3 lg:my-4 m-4" >
       <div class="border border-4 bg-slate-300 p-3 h-56">
         <h3 class="font-extrabold">About:</h3>
         <p><i class="fa-solid fa-circle-info"></i> <%= user.bio%></p>
@@ -39,9 +39,8 @@
       </div>
     </section>
     
-
-    <section class="row-start-2 lg:row-start-1 border border-slate-900 col-start-1 col-span-9 lg:col-start-4 lg:col-span-6 grid grid-cols-1 lg:grid-cols-2 gap-4 border-black mx-4 lg:m-4 p-2 lg:p-4">
-      <div class="col-start-1 lg:col-span-2 grid grid-cols-9 pt-4 px-4">
+    <section class="row-start-2 lg:row-start-1 border border-slate-900 col-start-1 col-span-9 lg:col-start-4 lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-4 border-black mx-4 lg:m-4 p-2 lg:p-4">
+      <div class="col-start-1 md:col-span-2 grid grid-cols-9 pt-4 px-4">
         <h2 class="col-start-1 text-2xl">Posts:</h2>
         <a class="col-start-6 col-span-4 lg:col-start-6 lg:col-span-4 flex justify-end" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-full lg:w-3/5">Add Post</button></a>
       </div>

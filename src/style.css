@@ -10,8 +10,14 @@
     background-size: cover;
     object-fit: cover;
     padding-top: 2rem;
-        /* background: var(--light-gray); */
     }
+
+    @media only screen and (max-width: 600px) {
+        .profile--header-container {
+          height: 10rem;
+          width: 100%;
+        }
+      }
 
     .signup-container {
         width: 100%;
@@ -37,6 +43,12 @@
 .absolute{
     margin-top: -200px;
 }
+
+@media only screen and (max-width: 600px) {
+    .absolute {
+        margin-top: -115px;
+    }
+  }
 
 body{
     min-height: 100vh;
