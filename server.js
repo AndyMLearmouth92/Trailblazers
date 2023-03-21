@@ -1,9 +1,10 @@
+const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
 
 const express = require("express");
 const app = express();
 // using express
-const mongoose = require("mongoose");
+
 // manages the database through schemas
 const passport = require("passport");
 // manages authentication
