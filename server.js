@@ -1,19 +1,14 @@
 const express = require("express");
-const app = express();
-// using express
 const mongoose = require("mongoose");
-// manages the database through schemas
+const app = express();
 const passport = require("passport");
-// manages authentication
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const methodOverride = require("method-override");
-// Allows us to override the default form method in EJS from post to put / delete
 const flash = require("express-flash");
-// Shows log in errors
 const logger = require("morgan");
-// console logs request
 const connectDB = require("./config/database");
+
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comment");
