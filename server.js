@@ -1,7 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
 // using express
+const mongoose = require("mongoose");
 // manages the database through schemas
 const passport = require("passport");
 // manages authentication
@@ -29,12 +29,7 @@ require("dotenv").config({ path: "./config/.env" });
 require("./config/passport")(passport);
 
 //Connect To Database
-connectDB().then( () => {
-  app.listen(process.env.PORT, () => {
-    console.log("Server is running, you better catch it!");
-  });
-}
-)
+connectDB();
 
 //Using EJS for views
 app.set("view engine", "ejs");
@@ -77,3 +72,9 @@ app.use("/comment", commentRoutes)
 app.use("/feed", feedRoutes)
 app.use("/profile", profileRoutes)
 app.use("/editProfile", editProfileRoutes)
+
+
+//Server Running
+app.listen(process.env.PORT, () => {
+  console.log("Server is running, you better catch it!");
+});
