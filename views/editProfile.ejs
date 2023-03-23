@@ -1,55 +1,62 @@
 <%- include('partials/header') -%>
 <!-- header image -->
-<div class="md:hero md:min-h-screen bg-base-200" style="background-image: url(/Images/funes-4984899.jpg);">
-  <div class="md:hero-content grid md:grid-cols-2">
-    <div class="col-start-1 col-span-2 justify-self-center">
-      
+<div class="hero md:min-h-screen bg-base-200" style="background-image: url(/Images/funes-4984899.jpg);">
+  <div class="hero-overlay bg-opacity-20"></div>
+  <div class="rounded-2xl md:grid md:grid-cols-2">
+
+    <div class="hidden md:block md:col-start-1 mx-10 my-auto">
+      <img src="<%= user.profilePhoto%>" class="md:max-w-sm rounded-lg shadow-2xl border-white border-4" />
     </div>
-    <div class="hidden md:block md:col-start-1 mx-10">
-      <img src="<%= user.profilePhoto%>" class="max-w-sm rounded-lg shadow-2xl border-white border-4" />
-    </div>
+
     <div class="md:col-start-2 md:justify-center md:mx-10">
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-slate-300">
-      <div class="card-body col-span-2 bg-slate-300">
-        <div class="form-control">
-          <h1 class="text-3xl font-bold text-slate-900 mx-auto">Edit Profile</h1>
+    
+      <div class="card shadow-2xl bg-slate-300">
+        <div class="card-body">
+          <div class="form-control">
+            <h1 class="text-3xl font-bold text-slate-900 mx-auto">Edit Profile</h1>
+            </div>
+
+          <div class="md:hidden block">
+            <img src="<%= user.profilePhoto%>" class="md:max-w-sm rounded-lg shadow-2xl border-white border-4" />
           </div>
-        <form action="/editProfile/editProfile" enctype="multipart/form-data" method="POST">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text text-slate-900">User Name</span>
-          </label>
-          <input type="text" placeholder="User Name" class="input input-bordered"  id="userName" name="userName"/>
-        </div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text text-slate-900">Location</span>
-          </label>
-          <input type="text" placeholder="Location" class="input input-bordered" id="location" name="location"/>
+          <form action="/editProfile/editProfile" enctype="multipart/form-data" method="POST">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-slate-900">User Name</span>
+              </label>
+              <input type="text" placeholder="User Name" class="input input-bordered"  id="userName" name="userName"/>
+            </div>
+      
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-slate-900">Location</span>
+              </label>
+              <input type="text" placeholder="Location" class="input input-bordered" id="location" name="location"/>
+            </div>
+      
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-slate-900">Bio</span>
+              </label>
+              <textarea type="text" placeholder="Bio" class="input input-bordered h-32" id="bio" name="bio"></textarea>
+            </div>
+      
+            <div>
+              <label class="label">
+                <span class="label-text text-slate-900">Image</span>
+              </label>
+              <input type="file" class="file-input file-input-bordered file-input-slate-900 w-full max-w-xs" id="imageUpload" name="file" />
+            </div>
+      
+            <div class="form-control mt-6">
+              <button class="btn btn-grey">Submit</button>
+            </div>
+            </form>
         </div>
-
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text text-slate-900">Bio</span>
-          </label>
-          <textarea type="text" placeholder="Bio" class="input input-bordered h-32" id="bio" name="bio"></textarea>
-        </div>
-
-        <div>
-          <label class="label">
-            <span class="label-text text-slate-900">Image</span>
-          </label>
-          <input type="file" class="file-input file-input-bordered file-input-slate-900 w-full max-w-xs" id="imageUpload" name="file" />
-        </div>
-
-        <div class="form-control mt-6">
-          <button class="btn btn-grey">Submit</button>
-        </div>
-        </form>
-
       </div>
-      </div>
+
+
     </div>
   </div>
 </div>    
