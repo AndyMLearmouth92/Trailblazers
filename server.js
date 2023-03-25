@@ -14,7 +14,6 @@ const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comment");
 const feedRoutes = require("./routes/feed");
 const profileRoutes = require("./routes/profile");
-const editProfileRoutes = require("./routes/editProfile")
 
 
 //Use .env file in config folder
@@ -66,7 +65,6 @@ app.use("/post", postRoutes);
 app.use("/comment", commentRoutes)
 app.use("/feed", feedRoutes)
 app.use("/profile", profileRoutes)
-app.use("/editProfile", editProfileRoutes)
 
 
 //Server Running

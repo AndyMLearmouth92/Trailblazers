@@ -8,7 +8,6 @@ module.exports = {
     try {
       const user = await User.findOne({userName : req.params.userName.toLowerCase()}).lean();
       const posts = await Post.find({ user: user._id }).populate('user').lean();
-      console.log(posts)
       res.render("profile.ejs", { posts: posts, user: user, loggedInUser: req.user});
     } catch (err) {
       console.log(err);
@@ -53,4 +52,59 @@ module.exports = {
       res.redirect(`/profile/${user.userName}`);
     }
   },
+  getEditProfile: async (req, res) => {
+    try {
+      res.render("editProfile.ejs", { loggedInUser: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+ 
+  editProfile: async (req, res) => {
+    try {
+      if(req.file != undefined){
+      const result = await cloudinary.uploader.upload(req.file.path);
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          profilePhoto: result.secure_url,
+          cloudinaryId: result.public_id
+        }
+      )
+      console.log('Successfully changed image')
+      }
+      if(req.body.userName != ''){
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          {
+            userName: req.body.userName
+          }
+        )
+        console.log('Successfully changed username')
+      }
+      if(req.body.location != ''){
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          {
+            location: req.body.location
+          }
+        )
+        console.log('Successfully changed location')
+      }
+      if(req.body.bio != ''){
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          {
+            bio: req.body.bio
+          }
+        )
+        console.log('Successfully changed bio')
+      }
+      res.redirect(`/profile/${req.body.userName}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
+
+

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trailblazers</title>
-    
+
     <link
       rel="icon"
       type="image/png"
@@ -54,12 +54,8 @@
         </form>
         </div>
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
-            <% if (user == undefined) { %>
-              <img src="/Images/dog-983014_1920.jpg" />
-          <% } else {%>            
+          <div class="w-10 rounded-full">       
             <a href="/profile/<%= loggedInUser.userName%>"><img src="<%= loggedInUser.profilePhoto%>" /></a>
-          <% }%>
           </div>
         </label>
         <ul>
@@ -82,14 +78,11 @@
       <% } %>
       <div class="flex-none">
         <% if (loggedInUser != undefined) { %>
+          <!-- Hides the buttons on the nav. -->
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
             <div class="w-10 rounded-full">
-              <% if (user == undefined) { %>
-                <img src="/Images/dog-983014_1920.jpg" />
-            <% } else {%>            
               <img src="<%= loggedInUser.profilePhoto%>" />
-            <% }%>
             </div>
           </label>
          

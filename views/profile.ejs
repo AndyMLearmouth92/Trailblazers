@@ -11,10 +11,10 @@
           <h2 class="flex justify-center text-xl md:text-2xl font-bold pt-1"> <%= user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2>
           <% if (user.userName == loggedInUser.userName) { %>
           <div class="hidden md:flex justify-center">
-            <a href="/editProfile"><button class="btn btn-outline mt-4 normal-case text-lg">Edit Profile</button></a>
+            <a href="/profile/getEditProfile"><button class="btn btn-outline mt-4 normal-case text-lg">Edit Profile</button></a>
           </div>
           <div class="flex md:hidden justify-center">
-            <a href="/editProfile"><button class="btn btn-sm btn-outline mt-2 normal-case text-lg">Edit Profile</button></a>
+            <a href="/profile/getEditProfile"><button class="btn btn-sm btn-outline mt-2 normal-case text-lg">Edit Profile</button></a>
           </div>
           <% } %>
         </div>

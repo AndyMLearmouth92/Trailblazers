@@ -5,7 +5,7 @@
   <div class="rounded-2xl md:grid md:grid-cols-2">
 
     <div class="hidden md:block md:col-start-1 mx-10 my-auto">
-      <img src="<%= user.profilePhoto%>" class="md:max-w-sm rounded-lg shadow-2xl border-white border-4" />
+      <img src="<%= loggedInUser.profilePhoto%>" class="md:max-w-sm rounded-lg shadow-2xl border-white border-4" />
     </div>
 
     <div class="md:col-start-2 md:justify-center md:mx-10">
@@ -17,10 +17,10 @@
             </div>
 
           <div class="md:hidden block">
-            <img src="<%= user.profilePhoto%>" class="md:max-w-sm rounded-lg shadow-2xl border-white border-4" />
+            <img src="<%= loggedInUser.profilePhoto%>" class="md:max-w-sm rounded-lg shadow-2xl border-white border-4" />
           </div>
 
-          <form action="/editProfile/editProfile" enctype="multipart/form-data" method="POST">
+          <form action="/profile/editProfile" enctype="multipart/form-data" method="POST">
             <div class="form-control">
               <label class="label">
                 <span class="label-text text-slate-900">User Name</span>
