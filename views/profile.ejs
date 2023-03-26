@@ -30,7 +30,7 @@
   </main>
  
   <section class="grid grid-cols-9">
-    <section class="col-start-1 col-span-9 lg:col-start-1 lg:col-span-3 lg:my-4 m-4" >
+    <section class="col-start-1 col-span-9 lg:col-start-2 lg:col-span-2 lg:my-4 m-4" >
       <div class="border border-4 bg-slate-300 p-3 h-56">
         <h3 class="font-extrabold">About:</h3>
         <p><i class="fa-solid fa-circle-info"></i> <%= user.bio%></p>
@@ -69,8 +69,10 @@
               <%}%>
             </div>
           </div>
-          <%if(posts[i].user.userName == user.userName){ %>
-          <div class="flex flex-row justify-center gap-4 sm:self-end">
+           <!-- outer div -->
+      <div class="flex flex-row justify-center gap-4 sm:self-end">
+          <%if(posts[i].user.userName == loggedInUser.userName){ %>
+          
             <form
             class="col-1"
             action="/profile/likePost/<%= posts[i].id %>?_method=PUT"
@@ -89,22 +91,20 @@
             >
               <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
             </form>
-        </div>
 
         <% } else {%>   
-          <div class="card-actions justify-end col-start-5">
+          
             <form
-            class="col-1"
+            class=""
             action="/profile/likePost/<%= posts[i].id %>?_method=PUT"
             method="POST"
           >
             <button class="btn fa fa-heart bg-slate-900" type="submit"></button>
             <h3 class="flex justify-center font-bold likesText"><%= posts[i].likes %></h3>
           </form>
-        </div>
-        <div class ="flex justify-end col-start-6">
+        
          <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
-        </div>
+        
       </section>
             <%}%>
           </div>

@@ -40,7 +40,7 @@
 
       <!-- outer div -->
       <div class="flex flex-row justify-center gap-4 sm:self-end">
-      <% if (posts[i].user.userName == user.userName) { %>
+      <% if (posts[i].user.userName == loggedInUser.userName) { %>
         <form
         class=""
         action="/feed/likePost/<%= posts[i]._id %>?_method=PUT"
