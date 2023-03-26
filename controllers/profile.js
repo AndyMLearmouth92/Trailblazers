@@ -17,7 +17,7 @@ module.exports = {
   profileSearch: async (req, res) => {
     try {
       const user = await User.findOne({ userName: req.query.userName}).lean();
-      const posts = await Post.find({ user: user._id });
+      const posts = await Post.find({ user: user._id }).populate('user').lean();
       res.render("profile.ejs", { posts: posts, user: user, loggedInUser: req.user});
     } catch (err) {
       res.redirect(`/`)
@@ -42,14 +42,13 @@ module.exports = {
 
   deletePost: async (req, res) => {
     try {
-      let post = await Post.findById({ _id: req.params.id });
+      const post = await Post.findById({ _id: req.params.id });
       await cloudinary.uploader.destroy(post.cloudinaryId);
       await Post.remove({ _id: req.params.id });
-      const user = await User.findById(post.user)
       console.log("Deleted Post");
-      res.redirect(`/profile/${user.userName}`);
+      res.redirect(`/profile/${req.user.userName}`);
     } catch (err) {
-      res.redirect(`/profile/${user.userName}`);
+      res.redirect(`/profile/${req.user.userName}`);
     }
   },
   
