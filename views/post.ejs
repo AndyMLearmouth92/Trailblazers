@@ -59,11 +59,11 @@
       <% for(var i=0; i<comment.length; i++) {%>
         <div class="chat chat-start">
           <div class="chat-image avatar">
-            <a href="/profile/<%= comment[i].user._id%>"><div class="w-10 rounded-full">
+            <a href="/profile/<%= comment[i].user.userName%>"><div class="w-10 rounded-full">
               <img src="<%= comment[i].user.profilePhoto%>" /></a> Edit here
             </div>
           </div>
-          <a href="/profile/<%= comment[i].user._id%>"><div class="chat-header">
+          <a href="/profile/<%= comment[i].user.userName%>"><div class="chat-header">
             <%= comment[i].user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %>
           </div></a>
           <div class="chat-bubble bg-slate-900"><%= comment[i].comment%> </div>
