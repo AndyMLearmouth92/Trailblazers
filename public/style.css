@@ -3420,6 +3420,14 @@ html {
   padding: 0px;
 }
 
+.input-sm {
+  height: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 2rem;
+}
+
 .menu-horizontal {
   display: inline-flex;
   width: -moz-max-content;

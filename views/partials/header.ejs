@@ -90,7 +90,15 @@
             <li><a href="/feed">Feed</a></li>
             <li><a href="/profile/<%= loggedInUser.userName%>">Profile</a></li>
             <li><a href="/post">Post</a></li>
-            <li><a href="">Search</a></li>
+            <div class="form-control">
+              <form action="/profile/getProfileSearch/" method="get">
+                <div class="form-control">
+                  <div class="input-group">
+                    <input type="text" placeholder="Search…" class="input-sm input-bordered text-slate-900" name="userName" />
+                  </div>
+                </div>
+            </form>
+            </div>
             <li><a href="/logout"> Sign out</a></li>
           </ul>
         </div>
