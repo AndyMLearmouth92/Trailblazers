@@ -10,7 +10,6 @@ module.exports = {
         user: req.user.id,
         loggedInUser: req.user,
       });
-      // Passes the request through to the post model, following the schema and console logs that post has been added. Refreshes
       console.log("Comment has been added!");
       res.redirect("/post/"+req.params.id);
     } catch (err) {
