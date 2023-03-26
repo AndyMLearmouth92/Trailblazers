@@ -1,8 +1,6 @@
 const bcrypt = require("bcrypt");
-// Encrypts the password  
 const mongoose = require("mongoose");
 const { stringify } = require("postcss");
-// Uses Mongoose
 
 
 const UserSchema = new mongoose.Schema({
@@ -15,8 +13,6 @@ const UserSchema = new mongoose.Schema({
   bio: {type: String, default: 'Enjoy hiking',},
 });
 
-
-// Password hash middleware.
 UserSchema.pre("save", function save(next) {
   const user = this;
   if (!user.isModified("password")) {
@@ -35,8 +31,6 @@ UserSchema.pre("save", function save(next) {
     });
   });
 });
-
-// Helper method for validating user's password.
 
 UserSchema.methods.comparePassword = function comparePassword(
   candidatePassword,

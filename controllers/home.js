@@ -1,5 +1,5 @@
 module.exports = {
   getIndex: (req, res) => {
-    res.render("index.ejs", { user: req.user, loggedInUser: req.user });
+    res.render("index.ejs", {loggedInUser: req.user });
   },
 };

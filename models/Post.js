@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-// Use mongoose
 
 const PostSchema = new mongoose.Schema({
   title: {
@@ -43,6 +42,5 @@ const PostSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
-//Post schema
 
 module.exports = mongoose.model("Post", PostSchema);

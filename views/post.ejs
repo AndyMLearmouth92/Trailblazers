@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="grid grid-cols-6">
       <h2 class="card-title col-start-1 col-span-6 md:col-span-4 "><%= post.title %></h2>
-      <h2 class="card-title col-start-1 col-span-6 md:col-start-5 md:col-span-2 justify-self-end"><a href="/profile/<%= post.user._id%>"><%= post.user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2></a>
+      <h2 class="card-title col-start-1 col-span-6 md:col-start-5 md:col-span-2 justify-self-end"><a href="/profile/<%= post.user.userName%>"><%= post.user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2></a>
     </div>
     <div class="py-4">
       <img src="<%= post.image%>" />

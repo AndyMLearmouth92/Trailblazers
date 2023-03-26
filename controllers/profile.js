@@ -6,7 +6,7 @@ module.exports = {
  
   getProfile: async (req, res) => {
     try {
-      const user = await User.findOne({userName : req.params.userName.toLowerCase()}).lean();
+      const user = await User.findOne({userName : req.params.userName}).lean();
       const posts = await Post.find({ user: user._id }).populate('user').lean();
       res.render("profile.ejs", { posts: posts, user: user, loggedInUser: req.user});
     } catch (err) {
@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   
-  getProfileSearch: async (req, res) => {
+  profileSearch: async (req, res) => {
     try {
       const user = await User.findOne({ userName: req.query.userName}).lean();
       const posts = await Post.find({ user: user._id });
@@ -52,6 +52,7 @@ module.exports = {
       res.redirect(`/profile/${user.userName}`);
     }
   },
+  
   getEditProfile: async (req, res) => {
     try {
       res.render("editProfile.ejs", { loggedInUser: req.user });

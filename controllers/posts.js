@@ -1,25 +1,14 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
-const User = require("../models/User");
 
 module.exports = {
-
-//Should this go through profile controller
-  getProfile: async (req, res) => {
-    try {
-      const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, loggedInUser: req.user, user:req.user,});
-    } catch (err) {
-      console.log(err);
-    }
-  },
   
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id).populate('user');
       const comment = await Comment.find({post: req.params.id}).sort({ createdAt: "asc" }).populate('user').lean();
-      res.render("post.ejs", { post: post, user: req.user, comment: comment, loggedInUser: req.user });
+      res.render("post.ejs", { post: post, comment: comment, loggedInUser: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -29,7 +18,7 @@ module.exports = {
     try {
       const post = await Post.findById(req.params.id);
       const comment = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("createPost.ejs", { posts: post, user: req.user, comment: comment, loggedInUser: req.user });
+      res.render("createPost.ejs", { loggedInUser: req.user });
     } catch (err) {
       console.log(err);
     }

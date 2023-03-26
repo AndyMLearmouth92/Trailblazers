@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-// Use mongoose
 
 const CommentSchema = new mongoose.Schema({
   comment: {
@@ -23,6 +22,5 @@ const CommentSchema = new mongoose.Schema({
     ref: "User",
   },
 });
-//Comment schema
 
 module.exports = mongoose.model("Comment", CommentSchema);
