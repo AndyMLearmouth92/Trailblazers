@@ -47,7 +47,7 @@
       
       <% for(var i=0; i<posts.length; i++) {%>
       <div class="card card-compact w-fit bg-slate-100 shadow-xl">
-        <figure class="h-60 lg:h-72"><a href="/post/<%= posts[i].userName%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
+        <figure class="h-60 lg:h-72"><a href="/post/<%= posts[i]._id%>"><img src="<%= posts[i].image%>" alt="Shoes" /></a></figure>
         <div class="card-body flex grid grid-cols-3">
           <div class="col-start-1 col-span-2">
           <h2 class="card-title"><%= posts[i].title%></h2>
