@@ -64,7 +64,7 @@
             </div>
           </div>
           <a href="/profile/<%= comment[i].user._id%>"><div class="chat-header">
-            <%= comment[i].user.userName%>
+            <%= comment[i].user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %>
           </div></a>
           <div class="chat-bubble bg-slate-900"><%= comment[i].comment%> </div>
         </div>
