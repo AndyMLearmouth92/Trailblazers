@@ -62,6 +62,7 @@ module.exports = {
  
   editProfile: async (req, res) => {
     try {
+      let userName = req.user.userName
       if(req.file != undefined){
       const result = await cloudinary.uploader.upload(req.file.path);
       await User.findOneAndUpdate(
@@ -81,6 +82,7 @@ module.exports = {
           }
         )
         console.log('Successfully changed username')
+        userName = req.body.userName
       }
       if(req.body.location != ''){
         await User.findOneAndUpdate(
@@ -100,7 +102,7 @@ module.exports = {
         )
         console.log('Successfully changed bio')
       }
-      res.redirect(`/profile/${req.body.userName}`);
+      res.redirect(`/profile/${userName}`);
     } catch (err) {
       console.log(err);
     }
