@@ -3702,6 +3702,10 @@ html {
   margin-bottom: 0.75rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -4526,6 +4530,10 @@ button.btn-grey:hover{
 
   .lg\:mb-5 {
     margin-bottom: 1.25rem;
+  }
+
+  .lg\:mb-1 {
+    margin-bottom: 0.25rem;
   }
 
   .lg\:hidden {
