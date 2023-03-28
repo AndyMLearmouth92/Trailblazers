@@ -4280,6 +4280,10 @@ button.btn-grey:hover{
     grid-column-start: 8;
   }
 
+  .md\:col-start-12 {
+    grid-column-start: 12;
+  }
+
   .md\:row-start-1 {
     grid-row-start: 1;
   }
@@ -4291,6 +4295,14 @@ button.btn-grey:hover{
 
   .md\:mt-0 {
     margin-top: 0px;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
+  .md\:mt-4 {
+    margin-top: 1rem;
   }
 
   .md\:block {
@@ -4467,6 +4479,10 @@ button.btn-grey:hover{
     grid-column: span 4 / span 4;
   }
 
+  .lg\:col-span-8 {
+    grid-column: span 8 / span 8;
+  }
+
   .lg\:col-start-1 {
     grid-column-start: 1;
   }
@@ -4485,6 +4501,14 @@ button.btn-grey:hover{
 
   .lg\:col-start-6 {
     grid-column-start: 6;
+  }
+
+  .lg\:col-start-10 {
+    grid-column-start: 10;
+  }
+
+  .lg\:col-start-9 {
+    grid-column-start: 9;
   }
 
   .lg\:row-start-1 {
@@ -4585,6 +4609,26 @@ button.btn-grey:hover{
 
   .\32xl\:col-span-3 {
     grid-column: span 3 / span 3;
+  }
+
+  .\32xl\:col-start-10 {
+    grid-column-start: 10;
+  }
+
+  .\32xl\:col-start-11 {
+    grid-column-start: 11;
+  }
+
+  .\32xl\:col-start-8 {
+    grid-column-start: 8;
+  }
+
+  .\32xl\:col-start-9 {
+    grid-column-start: 9;
+  }
+
+  .\32xl\:mt-4 {
+    margin-top: 1rem;
   }
 
   .\32xl\:grid-cols-4 {
