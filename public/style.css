@@ -3634,6 +3634,10 @@ html {
   grid-column-start: 2;
 }
 
+.col-start-8 {
+  grid-column-start: 8;
+}
+
 .row-start-2 {
   grid-row-start: 2;
 }
@@ -4524,6 +4528,10 @@ button.btn-grey:hover{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:gap-4 {
+    gap: 1rem;
+  }
+
   .lg\:justify-self-end {
     justify-self: end;
   }
@@ -4571,7 +4579,23 @@ button.btn-grey:hover{
 }
 
 @media (min-width: 1536px) {
+  .\32xl\:col-span-8 {
+    grid-column: span 8 / span 8;
+  }
+
+  .\32xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
   .\32xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .\32xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .\32xl\:gap-2 {
+    gap: 0.5rem;
   }
 }
