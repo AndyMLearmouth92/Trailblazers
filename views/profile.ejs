@@ -40,7 +40,7 @@
     </section>
     
     <section class="row-start-2 lg:row-start-1 border border-slate-900 col-start-1 col-span-9 lg:col-start-4 lg:col-span-6 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 lg:gap-4 mx-4 lg:m-4 p-2 lg:p-4">
-      <div class="col-start-1 2xl:col-span-3 md:col-span-2 grid grid-cols-9 pt-4 px-4 mb-4 lg:mb-1">
+      <div class="col-start-1 2xl:col-span-3 md:col-span-2 grid grid-cols-9  mb-4 lg:mb-1">
         <h2 class="col-start-1 text-2xl">Posts:</h2>
         <a class="col-start-6 col-span-4 flex justify-end" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg w-full lg:w-3/5">Add Post</button></a>
       </div>
@@ -65,7 +65,7 @@
             <h5 class="font-bold">Rating:</h5>
             <div class="rating rating-mdlg mt-2">
               <% for(var j=0; j<posts[i].rating; j++) {%>
-              <input type="" name="rating-2" class="mask mask-star-2 bg-slate-900" />
+              <input type="rating" name="rating-2" class="mask mask-star-2 bg-slate-900" />
               <%}%>
             </div>
           </div>

@@ -11,8 +11,8 @@
       <img src="<%= post.image%>" />
     </div>
     <div class="grid grid-cols-12 flex">
-      <p class="col-start-1 md:col-span-7 col-span-12 lg:col-span-8"> <%= post.caption %></p>
-      <div class="row start-3 col-start-1 col-span-6 md:row-start-1 md:col-start-9 lg:col-start-10 md:col-span-2 justify-self-start mt-4 md:mt-0"><h4 class="font-bold">Location:</h4> <%= post.location %></div>
+      <p class="col-start-1 md:col-span-7 col-span-12 lg:col-span-7"> <%= post.caption %></p>
+      <div class="row start-3 col-start-1 col-span-6 md:row-start-1 md:col-start-9 lg:col-start-9 md:col-span-2 justify-self-start mt-4 md:mt-0"><h4 class="font-bold">Location:</h4> <%= post.location %></div>
       <div class="col-start-7 col-span-6 md:row-start-1 md:col-start-11 md:col-span-2 justify-self-end mt-4 md:mt-0"><h4 class="font-bold">Trail Name:</h4> <%= post.trailName %></div>
     </div>
     <%if(post.user.id == loggedInUser._id){ %>

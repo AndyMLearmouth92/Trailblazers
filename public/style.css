@@ -4256,6 +4256,10 @@ button.btn-grey:hover{
     grid-column: span 7 / span 7;
   }
 
+  .md\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
   .md\:col-start-1 {
     grid-column-start: 1;
   }
@@ -4485,6 +4489,10 @@ button.btn-grey:hover{
 
   .lg\:col-span-8 {
     grid-column: span 8 / span 8;
+  }
+
+  .lg\:col-span-7 {
+    grid-column: span 7 / span 7;
   }
 
   .lg\:col-start-1 {
