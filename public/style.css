@@ -4563,3 +4563,9 @@ button.btn-grey:hover{
     line-height: 2.5rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
