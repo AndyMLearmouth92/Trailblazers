@@ -1,16 +1,17 @@
 <%- include('partials/header') -%>
+<!-- Feed container -->
 <section class="border border-slate-900 border-black m-4 p-2 lg:p-4" >
 
 <section class="grid grid-cols-9">
   <div class="col-start-1 col-span-2 py-2">
     <h2 class="text-2xl">Feed:</h2>
   </div>
-
   <div class="col-start-6 col-span-4 md:col-start-7 md:col-span-3">
     <a class="flex justify-end" href="/post"><button class="btn btn-outline mx-4 normal-case text-lg lg:w-1/2 w-full">Add Post</button></a>
   </div>
 </section>
 
+<!-- Posts -->
 <section class="grid md:grid-cols-2 gap-4 sm:grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4">
   <% for(var i=0; i<posts.length; i++) {%>
   <div class="card card-compact w-fit bg-slate-100 shadow-xl m-2 max-w-md mx-auto">
@@ -25,8 +26,8 @@
         <h2 class="card-title"> <%= posts[i].user.userName.split(" ").map(e => e.charAt(0).toUpperCase()+e.slice(1)).join(' ') %></h2></a>
         <div class="mb-2"><h5 class="font-bold">Location:</h5> <%= posts[i].location%></div>
         
-        <div><h5 class="font-bold">Trail Name:</h5> <%= posts[i].trailName%></div>
-      </div>
+      <div><h5 class="font-bold">Trail Name:</h5> <%= posts[i].trailName%></div>
+    </div>
   </div>
     <section class="card-body flex flex-col sm:flex-row justify-center gap-4 sm:justify-between">
       <div class="self-center">
@@ -38,7 +39,7 @@
         </div>
       </div>
 
-      <!-- outer div -->
+      <!-- Trash can shows if user created the post -->
       <div class="flex flex-row justify-center gap-4 sm:self-end">
       <% if (posts[i].user.userName == loggedInUser.userName) { %>
         <form
@@ -59,6 +60,7 @@
           <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
         </form>
     
+  <!-- Trash can does not show as the user did not create the post. -->
   <% } else {%>      
       <form
       class=""
@@ -71,18 +73,13 @@
     <a href="/post/<%= posts[i]._id%>"><button class="btn fa fa-comment bg-slate-900" type="submit"></button></a>
     <!-- <h3>Comments: <%= posts[i].likes %></h3> -->
 </section>
-
-
   <% }%>
       </div>
     </div>
   </div>
-  
   <% } %>
 </div>
 </section>
-
-  
 </section>
   
 <%- include('partials/footer') -%>

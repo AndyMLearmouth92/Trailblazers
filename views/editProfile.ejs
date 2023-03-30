@@ -3,13 +3,13 @@
 <div class="hero md:min-h-screen bg-base-200" style="background-image: url(/Images/funes-4984899.jpg);">
   <div class="hero-overlay bg-opacity-20"></div>
   <div class="rounded-2xl md:grid md:grid-cols-2">
-
+<!-- On medium screens profile image will show to the left of the form. -->
     <div class="hidden md:block md:col-start-1 mx-10 my-auto">
       <img src="<%= loggedInUser.profilePhoto%>" class="md:max-w-sm rounded-lg shadow-2xl border-white border-4" />
     </div>
 
+    <!-- Form and image will show as part of the form on smaller screens. -->
     <div class="md:col-start-2 md:justify-center md:mx-10">
-    
       <div class="card shadow-2xl bg-slate-300">
         <div class="card-body">
           <div class="form-control">
@@ -55,8 +55,6 @@
             </form>
         </div>
       </div>
-
-
     </div>
   </div>
 </div>    

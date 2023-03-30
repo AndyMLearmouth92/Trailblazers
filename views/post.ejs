@@ -1,5 +1,6 @@
 <%- include('partials/header') -%>
 <div class="grid grid-cols-9 p-5 sm:pt-5">
+  <!-- Post -->
   <div class="col-start-1 col-span-9 lg:col-start-1 lg:col-span-6 lg:border-r border-slate-900 lg:pr-6 lg:mb-5">
   <section class="bg-slate-300 px-8 py-4">
   <div class="row justify-content-center">
@@ -11,10 +12,11 @@
       <img src="<%= post.image%>" />
     </div>
     <div class="grid grid-cols-12 flex">
-      <p class="col-start-1 md:col-span-7 col-span-12 lg:col-span-7"> <%= post.caption %></p>
+      <p class="col-start-1 md:col-span-7 col-span-12"> <%= post.caption %></p>
       <div class="row start-3 col-start-1 col-span-6 md:row-start-1 md:col-start-9 lg:col-start-9 md:col-span-2 justify-self-start mt-4 md:mt-0"><h4 class="font-bold">Location:</h4> <%= post.location %></div>
       <div class="col-start-7 col-span-6 md:row-start-1 md:col-start-11 md:col-span-2 justify-self-end mt-4 md:mt-0"><h4 class="font-bold">Trail Name:</h4> <%= post.trailName %></div>
     </div>
+    <!-- If logged in user made the posts show the trash can. -->
     <%if(post.user.id == loggedInUser._id){ %>
     <div class="grid grid-cols-9 flex mt-4 md:mt-2 2xl:mt-4">
       <div class="md:col-start-8 flex md:justify-end justify-self-center col-start-1 col-span-9 gap-4 lg:col-start-9">
@@ -36,6 +38,7 @@
       <button class="btn fa fa-trash bg-slate-900" type="submit"></button>
     </form>
 </div>
+<!-- If logged in user did not make the post do not show the trash can. -->
     <% } else {%>   
       <div class="grid grid-cols-9 flex mt-4 md:mt-2 2xl:mt-4">
       <div class="col-start-1 col-span-9 md:col-start-9 flex justify-center lg:justify-self-end">
@@ -49,12 +52,11 @@
     </form>
   </div>
     <%}%>
-    </div>
-
-    
+    </div>  
 </div>  
 </section>
 </div>
+<!-- Comments section. -->
   <div class="col-start-1 col-span-9 lg:col-start-7 lg:col-span-3 col-3 mt-5 p-6">
       <% for(var i=0; i<comment.length; i++) {%>
         <div class="chat chat-start">

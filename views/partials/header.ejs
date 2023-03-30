@@ -23,8 +23,9 @@
     />
     <script src="https://kit.fontawesome.com/55dffb2fda.js" crossorigin="anonymous"></script>
   </head>
+
   <body>
-    
+    <!-- Nav on screens below large. -->
     <div class=" bg-slate-900 text-white hidden lg:navbar">
       <% if (loggedInUser == undefined) { %>
       <div class="flex-1 sm:break-inside-auto">
@@ -67,7 +68,7 @@
       </div>
     </div>
     
-
+<!-- Nav on large and above screens. -->
     <div class="navbar bg-slate-900 text-white lg:hidden">
       <% if (loggedInUser == undefined) { %>
       <div class="flex-1">
