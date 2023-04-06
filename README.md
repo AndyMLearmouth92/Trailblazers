@@ -37,9 +37,11 @@ Please make sure to update tests as appropriate.
 
 ## Optimisations
 
-For optimisations, I want to focus on adding categories and star ratings to the review form to allow users to rate their property in different areas and give it an average score out of 10. I would also add the ability to upload more than one image per review and refine the search bar.
-
-Additional optimisations would focus on the UX, including the addition of dark mode.
+For optimisations, I want to focus on: 
+- expanding the search function so it searches trails and locations rather than just user names.
+- changing the view from EJS to React. This will stop the page refreshing everytime a user clicks the like button.
+- implementing functionality so that users can only click the like button on a post once. This could also act as an unlike feature.
+- adding a dark mode.
 
 ## License
 
