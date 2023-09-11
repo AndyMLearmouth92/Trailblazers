@@ -4,6 +4,8 @@
 
 Trailblazers is a social media platform that allows climbers, hikers and walkers to share images and content from their adventures such as location, trail names and a caption. Our aim is to bring together adventurers and share knowledge and experience of great routes and locations. The site is responsive so works on desktop, tablet and mobile.
 
+You can view the site <a href="https://trailblazers.cyclic.app/">here</a>. You will need to make an account to have a look around.
+
 # Install
 
 ```bash
